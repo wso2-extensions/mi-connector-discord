@@ -1,0 +1,14 @@
+{
+    "name": "Discord",
+    "owner": "WSO2",
+    "product": "MI",
+    "category": "Communication",
+    "documentationUrl": "https://mi.docs.wso2.com/en/4.4.0/",
+    "mavenGroupId": "org.wso2.integration.connector",
+    "mavenArtifactId": "mi-connector-discord",
+    "description": "The Discord connector offers APIs to connect and interact with the Discord REST API, enabling the integration of messaging, user management, and community engagement features into applications",
+    "status": "Active",
+    "rank": 5,
+    "type": "Connector",
+    "releases": []
+}
