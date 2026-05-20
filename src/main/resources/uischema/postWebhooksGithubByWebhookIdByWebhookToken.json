@@ -1,0 +1,451 @@
+{
+  "connectorName": "discord",
+  "operationName": "postWebhooksGithubByWebhookIdByWebhookToken",
+  "title": "execute_github_compatible_webhook",
+  "help": "execute_github_compatible_webhook\n",
+  "elements": [
+    {
+      "type": "attributeGroup",
+      "value": {
+        "groupName": "General",
+        "elements": [
+          {
+            "type": "attribute",
+            "value": {
+              "name": "configRef",
+              "displayName": "Connection",
+              "inputType": "connection",
+              "allowedConnectionTypes": [
+                "discord_Client"
+              ],
+              "defaultType": "connection.discord_Client",
+              "defaultValue": "",
+              "required": "true",
+              "helpTip": "Connection to be used"
+            }
+          },
+          {
+            "type": "attributeGroup",
+            "value": {
+              "groupName": "Input Variables",
+              "elements": [
+                {
+                  "type": "attribute",
+                  "value": {
+                    "name": "webhookId",
+                    "displayName": "webhookId",
+                    "inputType": "stringOrExpression",
+                    "defaultValue": "",
+                    "required": true,
+                    "helpTip": "",
+                    "validateType": "",
+                    "matchPattern": ""
+                  }
+                },
+                {
+                  "type": "attribute",
+                  "value": {
+                    "name": "webhookToken",
+                    "displayName": "webhookToken",
+                    "inputType": "stringOrExpression",
+                    "defaultValue": "",
+                    "required": true,
+                    "helpTip": "",
+                    "validateType": "",
+                    "matchPattern": ""
+                  }
+                },
+                {
+                  "type": "attribute",
+                  "value": {
+                    "name": "pullRequest",
+                    "displayName": "pullRequest",
+                    "inputType": "stringOrExpression",
+                    "defaultValue": "",
+                    "required": false,
+                    "helpTip": "Expecting JSON object",
+                    "validateType": "regex",
+                    "matchPattern": "^$|^(\\{[\\s\\S]*\\}|\\$\\{.+\\})$"
+                  }
+                },
+                {
+                  "type": "attribute",
+                  "value": {
+                    "name": "headCommit",
+                    "displayName": "headCommit",
+                    "inputType": "stringOrExpression",
+                    "defaultValue": "",
+                    "required": false,
+                    "helpTip": "Expecting JSON object",
+                    "validateType": "regex",
+                    "matchPattern": "^$|^(\\{[\\s\\S]*\\}|\\$\\{.+\\})$"
+                  }
+                },
+                {
+                  "type": "attribute",
+                  "value": {
+                    "name": "compare",
+                    "displayName": "compare",
+                    "inputType": "stringOrExpression",
+                    "defaultValue": "",
+                    "required": false,
+                    "helpTip": "",
+                    "validateType": "",
+                    "matchPattern": ""
+                  }
+                },
+                {
+                  "type": "attribute",
+                  "value": {
+                    "name": "issue",
+                    "displayName": "issue",
+                    "inputType": "stringOrExpression",
+                    "defaultValue": "",
+                    "required": false,
+                    "helpTip": "Expecting JSON object",
+                    "validateType": "regex",
+                    "matchPattern": "^$|^(\\{[\\s\\S]*\\}|\\$\\{.+\\})$"
+                  }
+                },
+                {
+                  "type": "attribute",
+                  "value": {
+                    "name": "release",
+                    "displayName": "release",
+                    "inputType": "stringOrExpression",
+                    "defaultValue": "",
+                    "required": false,
+                    "helpTip": "Expecting JSON object",
+                    "validateType": "regex",
+                    "matchPattern": "^$|^(\\{[\\s\\S]*\\}|\\$\\{.+\\})$"
+                  }
+                },
+                {
+                  "type": "attribute",
+                  "value": {
+                    "name": "forced",
+                    "displayName": "forced",
+                    "inputType": "boolean",
+                    "defaultValue": "",
+                    "required": false,
+                    "helpTip": "",
+                    "validateType": "",
+                    "matchPattern": ""
+                  }
+                },
+                {
+                  "type": "attribute",
+                  "value": {
+                    "name": "discussion",
+                    "displayName": "discussion",
+                    "inputType": "stringOrExpression",
+                    "defaultValue": "",
+                    "required": false,
+                    "helpTip": "Expecting JSON object",
+                    "validateType": "regex",
+                    "matchPattern": "^$|^(\\{[\\s\\S]*\\}|\\$\\{.+\\})$"
+                  }
+                },
+                {
+                  "type": "attribute",
+                  "value": {
+                    "name": "repository",
+                    "displayName": "repository",
+                    "inputType": "stringOrExpression",
+                    "defaultValue": "",
+                    "required": false,
+                    "helpTip": "Expecting JSON object",
+                    "validateType": "regex",
+                    "matchPattern": "^$|^(\\{[\\s\\S]*\\}|\\$\\{.+\\})$"
+                  }
+                },
+                {
+                  "type": "attribute",
+                  "value": {
+                    "name": "ref",
+                    "displayName": "ref",
+                    "inputType": "stringOrExpression",
+                    "defaultValue": "",
+                    "required": false,
+                    "helpTip": "",
+                    "validateType": "",
+                    "matchPattern": ""
+                  }
+                },
+                {
+                  "type": "attribute",
+                  "value": {
+                    "name": "checkRun",
+                    "displayName": "checkRun",
+                    "inputType": "stringOrExpression",
+                    "defaultValue": "",
+                    "required": false,
+                    "helpTip": "Expecting JSON object",
+                    "validateType": "regex",
+                    "matchPattern": "^$|^(\\{[\\s\\S]*\\}|\\$\\{.+\\})$"
+                  }
+                },
+                {
+                  "type": "attribute",
+                  "value": {
+                    "name": "answer",
+                    "displayName": "answer",
+                    "inputType": "stringOrExpression",
+                    "defaultValue": "",
+                    "required": false,
+                    "helpTip": "Expecting JSON object",
+                    "validateType": "regex",
+                    "matchPattern": "^$|^(\\{[\\s\\S]*\\}|\\$\\{.+\\})$"
+                  }
+                },
+                {
+                  "type": "attributeGroup",
+                  "value": {
+                    "groupName": "Sender",
+                    "collapsed": false,
+                    "elements": [
+                      {
+                        "type": "attribute",
+                        "value": {
+                          "name": "sender_avatarUrl",
+                          "displayName": "avatarUrl",
+                          "inputType": "stringOrExpression",
+                          "defaultValue": "",
+                          "required": true,
+                          "helpTip": "",
+                          "validateType": "",
+                          "matchPattern": ""
+                        }
+                      },
+                      {
+                        "type": "attribute",
+                        "value": {
+                          "name": "sender_htmlUrl",
+                          "displayName": "htmlUrl",
+                          "inputType": "stringOrExpression",
+                          "defaultValue": "",
+                          "required": true,
+                          "helpTip": "",
+                          "validateType": "",
+                          "matchPattern": ""
+                        }
+                      },
+                      {
+                        "type": "attribute",
+                        "value": {
+                          "name": "sender_id",
+                          "displayName": "id",
+                          "inputType": "stringOrExpression",
+                          "defaultValue": "",
+                          "required": true,
+                          "helpTip": "",
+                          "validateType": "regex",
+                          "matchPattern": "^(-?\\d+|\\$\\{.+\\})$"
+                        }
+                      },
+                      {
+                        "type": "attribute",
+                        "value": {
+                          "name": "sender_login",
+                          "displayName": "login",
+                          "inputType": "stringOrExpression",
+                          "defaultValue": "",
+                          "required": true,
+                          "helpTip": "",
+                          "validateType": "",
+                          "matchPattern": ""
+                        }
+                      }
+                    ]
+                  }
+                },
+                {
+                  "type": "attribute",
+                  "value": {
+                    "name": "review",
+                    "displayName": "review",
+                    "inputType": "stringOrExpression",
+                    "defaultValue": "",
+                    "required": false,
+                    "helpTip": "Expecting JSON object",
+                    "validateType": "regex",
+                    "matchPattern": "^$|^(\\{[\\s\\S]*\\}|\\$\\{.+\\})$"
+                  }
+                },
+                {
+                  "type": "attribute",
+                  "value": {
+                    "name": "member",
+                    "displayName": "member",
+                    "inputType": "stringOrExpression",
+                    "defaultValue": "",
+                    "required": false,
+                    "helpTip": "Expecting JSON object",
+                    "validateType": "regex",
+                    "matchPattern": "^$|^(\\{[\\s\\S]*\\}|\\$\\{.+\\})$"
+                  }
+                },
+                {
+                  "type": "attribute",
+                  "value": {
+                    "name": "action",
+                    "displayName": "action",
+                    "inputType": "stringOrExpression",
+                    "defaultValue": "",
+                    "required": false,
+                    "helpTip": "",
+                    "validateType": "",
+                    "matchPattern": ""
+                  }
+                },
+                {
+                  "type": "attribute",
+                  "value": {
+                    "name": "commits",
+                    "displayName": "commits",
+                    "inputType": "stringOrExpression",
+                    "defaultValue": "",
+                    "required": false,
+                    "helpTip": "Expecting JSON array",
+                    "validateType": "json",
+                    "matchPattern": ""
+                  }
+                },
+                {
+                  "type": "attribute",
+                  "value": {
+                    "name": "comment",
+                    "displayName": "comment",
+                    "inputType": "stringOrExpression",
+                    "defaultValue": "",
+                    "required": false,
+                    "helpTip": "Expecting JSON object",
+                    "validateType": "regex",
+                    "matchPattern": "^$|^(\\{[\\s\\S]*\\}|\\$\\{.+\\})$"
+                  }
+                },
+                {
+                  "type": "attribute",
+                  "value": {
+                    "name": "refType",
+                    "displayName": "refType",
+                    "inputType": "stringOrExpression",
+                    "defaultValue": "",
+                    "required": false,
+                    "helpTip": "",
+                    "validateType": "",
+                    "matchPattern": ""
+                  }
+                },
+                {
+                  "type": "attribute",
+                  "value": {
+                    "name": "checkSuite",
+                    "displayName": "checkSuite",
+                    "inputType": "stringOrExpression",
+                    "defaultValue": "",
+                    "required": false,
+                    "helpTip": "Expecting JSON object",
+                    "validateType": "regex",
+                    "matchPattern": "^$|^(\\{[\\s\\S]*\\}|\\$\\{.+\\})$"
+                  }
+                },
+                {
+                  "type": "attribute",
+                  "value": {
+                    "name": "forkee",
+                    "displayName": "forkee",
+                    "inputType": "stringOrExpression",
+                    "defaultValue": "",
+                    "required": false,
+                    "helpTip": "Expecting JSON object",
+                    "validateType": "regex",
+                    "matchPattern": "^$|^(\\{[\\s\\S]*\\}|\\$\\{.+\\})$"
+                  }
+                },
+                {
+                  "type": "attribute",
+                  "value": {
+                    "name": "wait",
+                    "displayName": "wait",
+                    "inputType": "boolean",
+                    "defaultValue": "",
+                    "required": false,
+                    "helpTip": "",
+                    "validateType": "",
+                    "matchPattern": ""
+                  }
+                },
+                {
+                  "type": "attribute",
+                  "value": {
+                    "name": "threadId",
+                    "displayName": "threadId",
+                    "inputType": "stringOrExpression",
+                    "defaultValue": "",
+                    "required": false,
+                    "helpTip": "",
+                    "validateType": "",
+                    "matchPattern": ""
+                  }
+                },
+                {
+                  "type": "attributeGroup",
+                  "value": {
+                    "groupName": "Advanced",
+                    "collapsed": true,
+                    "elements": [
+                      {
+                        "type": "attribute",
+                        "value": {
+                          "name": "headers",
+                          "displayName": "headers",
+                          "inputType": "stringOrExpression",
+                          "defaultValue": "{}",
+                          "required": false,
+                          "helpTip": "Expecting JSON object with key-value pairs",
+                          "validateType": "json",
+                          "matchPattern": ""
+                        }
+                      }
+                    ]
+                  }
+                }
+              ]
+            }
+          },
+          {
+            "type": "attributeGroup",
+            "value": {
+              "groupName": "Output",
+              "elements": [
+                {
+                  "type": "attribute",
+                  "value": {
+                    "name": "responseVariable",
+                    "displayName": "Output Variable Name",
+                    "inputType": "string",
+                    "defaultValue": "",
+                    "required": "false",
+                    "helpTip": "The target variable in which the output of the operation will be stored"
+                  }
+                },
+                {
+                  "type": "attribute",
+                  "value": {
+                    "name": "overwriteBody",
+                    "displayName": "Overwrite Message Body",
+                    "inputType": "checkbox",
+                    "defaultValue": "false",
+                    "helpTip": "Replace the Message Body in Message Context with the output payload of the operation (This will remove the payload from the above variable. But other elements such as headers and attributes will remain).",
+                    "required": "false"
+                  }
+                }
+              ]
+            }
+          }
+        ]
+      }
+    }
+  ]
+}

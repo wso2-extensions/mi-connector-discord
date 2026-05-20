@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  ~ Copyright (c) 2025, WSO2 LLC. (https://www.wso2.com).
+  ~
+  ~ WSO2 LLC. licenses this file to you under the Apache License,
+  ~ Version 2.0 (the "License"); you may not use this file except
+  ~ in compliance with the License.
+  ~ You may obtain a copy of the License at
+  ~
+  ~ http://www.apache.org/licenses/LICENSE-2.0
+  ~
+  ~ Unless required by applicable law or agreed to in writing,
+  ~ software distributed under the License is distributed on an
+  ~ "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+  ~ KIND, either express or implied.  See the License for the
+  ~ specific language governing permissions and limitations
+  ~ under the License.
+  -->
+<template xmlns="http://ws.apache.org/ns/synapse" name="postWebhooksGithubByWebhookIdByWebhookToken">
+    <parameter name="responseVariable" description="The target variable in which the output of the operation will be stored"/>
+    <parameter name="overwriteBody" description="Replace the Message Body in Message Context with the output payload of the operation"/>
+    <parameter name="webhookId" description=""/>
+    <parameter name="webhookToken" description=""/>
+    <parameter name="pullRequest" description=""/>
+    <parameter name="headCommit" description=""/>
+    <parameter name="compare" description=""/>
+    <parameter name="issue" description=""/>
+    <parameter name="release" description=""/>
+    <parameter name="forced" description=""/>
+    <parameter name="discussion" description=""/>
+    <parameter name="repository" description=""/>
+    <parameter name="ref" description=""/>
+    <parameter name="checkRun" description=""/>
+    <parameter name="answer" description=""/>
+    <parameter name="sender_avatarUrl" description=""/>
+    <parameter name="sender_htmlUrl" description=""/>
+    <parameter name="sender_id" description=""/>
+    <parameter name="sender_login" description=""/>
+    <parameter name="review" description=""/>
+    <parameter name="member" description=""/>
+    <parameter name="action" description=""/>
+    <parameter name="commits" description=""/>
+    <parameter name="comment" description=""/>
+    <parameter name="refType" description=""/>
+    <parameter name="checkSuite" description=""/>
+    <parameter name="forkee" description=""/>
+    <parameter name="headers" description=""/>
+    <parameter name="wait" description=""/>
+    <parameter name="threadId" description=""/>
+    <sequence>
+        <property name="param0" value="payload"/>
+        <property name="paramType0" value="record"/>
+        <property name="param0_recordName" value="GithubWebhook" />
+        <property name="param0_recordOrg" value="ballerinax" />
+        <property name="param0_recordModule" value="discord" />
+        <property name="payload_param0" value="pullRequest"/>
+        <property name="payload_paramType0" value="anydata"/>
+        <property name="payload_param1" value="headCommit"/>
+        <property name="payload_paramType1" value="anydata"/>
+        <property name="payload_param2" value="compare"/>
+        <property name="payload_paramType2" value="string"/>
+        <property name="payload_param3" value="issue"/>
+        <property name="payload_paramType3" value="anydata"/>
+        <property name="payload_param4" value="release"/>
+        <property name="payload_paramType4" value="anydata"/>
+        <property name="payload_param5" value="forced"/>
+        <property name="payload_paramType5" value="boolean"/>
+        <property name="payload_param6" value="discussion"/>
+        <property name="payload_paramType6" value="anydata"/>
+        <property name="payload_param7" value="repository"/>
+        <property name="payload_paramType7" value="anydata"/>
+        <property name="payload_param8" value="ref"/>
+        <property name="payload_paramType8" value="string"/>
+        <property name="payload_param9" value="checkRun"/>
+        <property name="payload_paramType9" value="anydata"/>
+        <property name="payload_param10" value="answer"/>
+        <property name="payload_paramType10" value="anydata"/>
+        <property name="payload_param11" value="sender.avatarUrl"/>
+        <property name="payload_paramType11" value="string"/>
+        <property name="payload_param12" value="sender.htmlUrl"/>
+        <property name="payload_paramType12" value="string"/>
+        <property name="payload_param13" value="sender.id"/>
+        <property name="payload_paramType13" value="int"/>
+        <property name="payload_param14" value="sender.login"/>
+        <property name="payload_paramType14" value="string"/>
+        <property name="payload_param15" value="review"/>
+        <property name="payload_paramType15" value="anydata"/>
+        <property name="payload_param16" value="member"/>
+        <property name="payload_paramType16" value="anydata"/>
+        <property name="payload_param17" value="action"/>
+        <property name="payload_paramType17" value="string"/>
+        <property name="payload_param18" value="commits"/>
+        <property name="payload_paramType18" value="array"/>
+        <property name="payload_param19" value="comment"/>
+        <property name="payload_paramType19" value="anydata"/>
+        <property name="payload_param20" value="refType"/>
+        <property name="payload_paramType20" value="string"/>
+        <property name="payload_param21" value="checkSuite"/>
+        <property name="payload_paramType21" value="anydata"/>
+        <property name="payload_param22" value="forkee"/>
+        <property name="payload_paramType22" value="anydata"/>
+        <property name="param1" value="headers"/>
+        <property name="paramType1" value="map"/>
+        <property name="mapValueType1" value="union"/>
+        <property name="param2" value="queries"/>
+        <property name="paramType2" value="record"/>
+        <property name="param2_recordName" value="ExecuteGithubCompatibleWebhookQueries" />
+        <property name="queries_param0" value="wait"/>
+        <property name="queries_paramType0" value="boolean"/>
+        <property name="queries_param1" value="threadId"/>
+        <property name="queries_paramType1" value="string"/>
+        <property name="paramSize" value="3"/>
+        <property name="paramFunctionName" value="postWebhooksGithubByWebhookIdByWebhookToken"/>
+        <property name="pathParam0" value="webhookId"/>
+        <property name="pathParamType0" value="string"/>
+        <property name="pathParam1" value="webhookToken"/>
+        <property name="pathParamType1" value="string"/>
+        <property name="returnType" value="union"/>
+        <property name="functionType" value="RESOURCE"/>
+        <property name="resourceAccessor" value="post"/>
+        <property name="pathParamSize" value="2"/>
+        <property name="jvmMethodName" value="$post$webhooks$$$$$github"/>
+        <class name="io.ballerina.stdlib.mi.BalConnectorFunction">
+            <property name="orgName" value="ballerinax"/>
+            <property name="moduleName" value="discord"/>
+            <property name="version" value="2"/>
+        </class>
+    </sequence>
+</template>

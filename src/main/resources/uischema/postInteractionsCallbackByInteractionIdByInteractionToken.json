@@ -1,0 +1,519 @@
+{
+  "connectorName": "discord",
+  "operationName": "postInteractionsCallbackByInteractionIdByInteractionToken",
+  "title": "create_interaction_response",
+  "help": "create_interaction_response\n",
+  "elements": [
+    {
+      "type": "attributeGroup",
+      "value": {
+        "groupName": "General",
+        "elements": [
+          {
+            "type": "attribute",
+            "value": {
+              "name": "configRef",
+              "displayName": "Connection",
+              "inputType": "connection",
+              "allowedConnectionTypes": [
+                "discord_Client"
+              ],
+              "defaultType": "connection.discord_Client",
+              "defaultValue": "",
+              "required": "true",
+              "helpTip": "Connection to be used"
+            }
+          },
+          {
+            "type": "attributeGroup",
+            "value": {
+              "groupName": "Input Variables",
+              "elements": [
+                {
+                  "type": "attribute",
+                  "value": {
+                    "name": "interactionId",
+                    "displayName": "interactionId",
+                    "inputType": "stringOrExpression",
+                    "defaultValue": "",
+                    "required": true,
+                    "helpTip": "",
+                    "validateType": "",
+                    "matchPattern": ""
+                  }
+                },
+                {
+                  "type": "attribute",
+                  "value": {
+                    "name": "interactionToken",
+                    "displayName": "interactionToken",
+                    "inputType": "stringOrExpression",
+                    "defaultValue": "",
+                    "required": true,
+                    "helpTip": "",
+                    "validateType": "",
+                    "matchPattern": ""
+                  }
+                },
+                {
+                  "type": "attribute",
+                  "value": {
+                    "name": "payloadDataType",
+                    "displayName": "payloadDataType",
+                    "inputType": "combo",
+                    "comboValues": [
+                      "ApplicationCommandAutocompleteCallbackRequest",
+                      "CreateMessageInteractionCallbackRequest",
+                      "ModalInteractionCallbackRequest",
+                      "PongInteractionCallbackRequest",
+                      "UpdateMessageInteractionCallbackRequest"
+                    ],
+                    "defaultValue": "ApplicationCommandAutocompleteCallbackRequest",
+                    "required": "true",
+                    "helpTip": ""
+                  }
+                },
+                {
+                  "type": "attributeGroup",
+                  "value": {
+                    "groupName": "Payload",
+                    "collapsed": false,
+                    "elements": [
+                      {
+                        "type": "attribute",
+                        "value": {
+                          "name": "payload_dataDataType",
+                          "displayName": "dataDataType",
+                          "inputType": "combo",
+                          "comboValues": [
+                            "InteractionApplicationCommandAutocompleteCallbackIntegerData",
+                            "InteractionApplicationCommandAutocompleteCallbackNumberData",
+                            "InteractionApplicationCommandAutocompleteCallbackStringData"
+                          ],
+                          "defaultValue": "InteractionApplicationCommandAutocompleteCallbackIntegerData",
+                          "required": "true",
+                          "helpTip": "",
+                          "enableCondition": [
+                            {
+                              "payloadDataType": "ApplicationCommandAutocompleteCallbackRequest"
+                            }
+                          ]
+                        }
+                      },
+                      {
+                        "type": "attributeGroup",
+                        "value": {
+                          "groupName": "Data",
+                          "collapsed": false,
+                          "enableCondition": [
+                            {
+                              "payloadDataType": "ApplicationCommandAutocompleteCallbackRequest"
+                            }
+                          ],
+                          "elements": [
+                            {
+                              "type": "attribute",
+                              "value": {
+                                "name": "payload_data_choices",
+                                "displayName": "choices",
+                                "inputType": "stringOrExpression",
+                                "defaultValue": "",
+                                "required": false,
+                                "helpTip": "Expecting JSON array",
+                                "validateType": "json",
+                                "matchPattern": "",
+                                "enableCondition": [
+                                  "AND",
+                                  {
+                                    "payloadDataType": "ApplicationCommandAutocompleteCallbackRequest"
+                                  },
+                                  {
+                                    "payload_dataDataType": "InteractionApplicationCommandAutocompleteCallbackIntegerData"
+                                  }
+                                ]
+                              }
+                            },
+                            {
+                              "type": "attribute",
+                              "value": {
+                                "name": "payload_data_choices",
+                                "displayName": "choices",
+                                "inputType": "stringOrExpression",
+                                "defaultValue": "",
+                                "required": false,
+                                "helpTip": "Expecting JSON array",
+                                "validateType": "json",
+                                "matchPattern": "",
+                                "enableCondition": [
+                                  "AND",
+                                  {
+                                    "payloadDataType": "ApplicationCommandAutocompleteCallbackRequest"
+                                  },
+                                  {
+                                    "payload_dataDataType": "InteractionApplicationCommandAutocompleteCallbackNumberData"
+                                  }
+                                ]
+                              }
+                            },
+                            {
+                              "type": "attribute",
+                              "value": {
+                                "name": "payload_data_choices",
+                                "displayName": "choices",
+                                "inputType": "stringOrExpression",
+                                "defaultValue": "",
+                                "required": false,
+                                "helpTip": "Expecting JSON array",
+                                "validateType": "json",
+                                "matchPattern": "",
+                                "enableCondition": [
+                                  "AND",
+                                  {
+                                    "payloadDataType": "ApplicationCommandAutocompleteCallbackRequest"
+                                  },
+                                  {
+                                    "payload_dataDataType": "InteractionApplicationCommandAutocompleteCallbackStringData"
+                                  }
+                                ]
+                              }
+                            }
+                          ]
+                        }
+                      },
+                      {
+                        "type": "attribute",
+                        "value": {
+                          "name": "payload_type",
+                          "displayName": "type",
+                          "inputType": "stringOrExpression",
+                          "defaultValue": "",
+                          "required": true,
+                          "helpTip": "",
+                          "validateType": "",
+                          "matchPattern": "",
+                          "enableCondition": [
+                            {
+                              "payloadDataType": "ApplicationCommandAutocompleteCallbackRequest"
+                            }
+                          ]
+                        }
+                      },
+                      {
+                        "type": "attribute",
+                        "value": {
+                          "name": "payload_data",
+                          "displayName": "data",
+                          "inputType": "stringOrExpression",
+                          "defaultValue": "",
+                          "required": false,
+                          "helpTip": "Expecting JSON object",
+                          "validateType": "regex",
+                          "matchPattern": "^$|^(\\{[\\s\\S]*\\}|\\$\\{.+\\})$",
+                          "enableCondition": [
+                            {
+                              "payloadDataType": "CreateMessageInteractionCallbackRequest"
+                            }
+                          ]
+                        }
+                      },
+                      {
+                        "type": "attribute",
+                        "value": {
+                          "name": "payload_type",
+                          "displayName": "type",
+                          "inputType": "combo",
+                          "comboValues": [
+                            "ballerinax/discord:2.0.1:PONG",
+                            "ballerinax/discord:2.0.1:CHANNELMESSAGEWITHSOURCE",
+                            "ballerinax/discord:2.0.1:DEFERREDCHANNELMESSAGEWITHSOURCE",
+                            "ballerinax/discord:2.0.1:DEFERREDUPDATEMESSAGE",
+                            "ballerinax/discord:2.0.1:UPDATEMESSAGE",
+                            "ballerinax/discord:2.0.1:APPLICATIONCOMMANDAUTOCOMPLETERESULT",
+                            "ballerinax/discord:2.0.1:MODAL"
+                          ],
+                          "defaultValue": "ballerinax/discord:2.0.1:PONG",
+                          "required": "true",
+                          "helpTip": "",
+                          "enableCondition": [
+                            {
+                              "payloadDataType": "CreateMessageInteractionCallbackRequest"
+                            }
+                          ]
+                        }
+                      },
+                      {
+                        "type": "attributeGroup",
+                        "value": {
+                          "groupName": "Data",
+                          "collapsed": false,
+                          "enableCondition": [
+                            {
+                              "payloadDataType": "ModalInteractionCallbackRequest"
+                            }
+                          ],
+                          "elements": [
+                            {
+                              "type": "attribute",
+                              "value": {
+                                "name": "payload_data_componentsInputMode",
+                                "displayName": "components Input Mode",
+                                "inputType": "combo",
+                                "comboValues": [
+                                  "Table",
+                                  "JSON"
+                                ],
+                                "defaultValue": "Table",
+                                "required": "true",
+                                "helpTip": "Choose input mode: Table for interactive entry, JSON for array expression",
+                                "enableCondition": [
+                                  {
+                                    "payloadDataType": "ModalInteractionCallbackRequest"
+                                  }
+                                ]
+                              }
+                            },
+                            {
+                              "type": "table",
+                              "value": {
+                                "name": "payload_data_components",
+                                "displayName": "components",
+                                "title": "components",
+                                "description": "Configure components entries",
+                                "tableKey": "components",
+                                "tableValue": "type",
+                                "enableCondition": [
+                                  "AND",
+                                  {
+                                    "payloadDataType": "ModalInteractionCallbackRequest"
+                                  },
+                                  {
+                                    "payload_data_componentsInputMode": "Table"
+                                  }
+                                ],
+                                "elements": [
+                                  {
+                                    "type": "attribute",
+                                    "value": {
+                                      "name": "components",
+                                      "displayName": "Components",
+                                      "inputType": "stringOrExpression",
+                                      "required": true,
+                                      "helpTip": "Components"
+                                    }
+                                  },
+                                  {
+                                    "type": "attribute",
+                                    "value": {
+                                      "name": "type",
+                                      "displayName": "Type",
+                                      "inputType": "stringOrExpression",
+                                      "required": true,
+                                      "helpTip": "Type"
+                                    }
+                                  }
+                                ]
+                              }
+                            },
+                            {
+                              "type": "attribute",
+                              "value": {
+                                "name": "payload_data_componentsJson",
+                                "displayName": "components (JSON Array)",
+                                "inputType": "stringOrExpression",
+                                "defaultValue": "",
+                                "required": true,
+                                "helpTip": "Enter JSON array of components objects. Example: [{\"field1\": \"value1\", ...}, ...]",
+                                "validateType": "json",
+                                "matchPattern": "",
+                                "enableCondition": [
+                                  "AND",
+                                  {
+                                    "payloadDataType": "ModalInteractionCallbackRequest"
+                                  },
+                                  {
+                                    "payload_data_componentsInputMode": "JSON"
+                                  }
+                                ]
+                              }
+                            },
+                            {
+                              "type": "attribute",
+                              "value": {
+                                "name": "payload_data_customId",
+                                "displayName": "customId",
+                                "inputType": "stringOrExpression",
+                                "defaultValue": "",
+                                "required": true,
+                                "helpTip": "",
+                                "validateType": "",
+                                "matchPattern": "",
+                                "enableCondition": [
+                                  {
+                                    "payloadDataType": "ModalInteractionCallbackRequest"
+                                  }
+                                ]
+                              }
+                            },
+                            {
+                              "type": "attribute",
+                              "value": {
+                                "name": "payload_data_title",
+                                "displayName": "title",
+                                "inputType": "stringOrExpression",
+                                "defaultValue": "",
+                                "required": true,
+                                "helpTip": "",
+                                "validateType": "",
+                                "matchPattern": "",
+                                "enableCondition": [
+                                  {
+                                    "payloadDataType": "ModalInteractionCallbackRequest"
+                                  }
+                                ]
+                              }
+                            }
+                          ]
+                        }
+                      },
+                      {
+                        "type": "attribute",
+                        "value": {
+                          "name": "payload_type",
+                          "displayName": "type",
+                          "inputType": "stringOrExpression",
+                          "defaultValue": "",
+                          "required": true,
+                          "helpTip": "",
+                          "validateType": "",
+                          "matchPattern": "",
+                          "enableCondition": [
+                            {
+                              "payloadDataType": "ModalInteractionCallbackRequest"
+                            }
+                          ]
+                        }
+                      },
+                      {
+                        "type": "attribute",
+                        "value": {
+                          "name": "payload_type",
+                          "displayName": "type",
+                          "inputType": "stringOrExpression",
+                          "defaultValue": "",
+                          "required": true,
+                          "helpTip": "",
+                          "validateType": "",
+                          "matchPattern": "",
+                          "enableCondition": [
+                            {
+                              "payloadDataType": "PongInteractionCallbackRequest"
+                            }
+                          ]
+                        }
+                      },
+                      {
+                        "type": "attribute",
+                        "value": {
+                          "name": "payload_data",
+                          "displayName": "data",
+                          "inputType": "stringOrExpression",
+                          "defaultValue": "",
+                          "required": false,
+                          "helpTip": "Expecting JSON object",
+                          "validateType": "regex",
+                          "matchPattern": "^$|^(\\{[\\s\\S]*\\}|\\$\\{.+\\})$",
+                          "enableCondition": [
+                            {
+                              "payloadDataType": "UpdateMessageInteractionCallbackRequest"
+                            }
+                          ]
+                        }
+                      },
+                      {
+                        "type": "attribute",
+                        "value": {
+                          "name": "payload_type",
+                          "displayName": "type",
+                          "inputType": "combo",
+                          "comboValues": [
+                            "ballerinax/discord:2.0.1:PONG",
+                            "ballerinax/discord:2.0.1:CHANNELMESSAGEWITHSOURCE",
+                            "ballerinax/discord:2.0.1:DEFERREDCHANNELMESSAGEWITHSOURCE",
+                            "ballerinax/discord:2.0.1:DEFERREDUPDATEMESSAGE",
+                            "ballerinax/discord:2.0.1:UPDATEMESSAGE",
+                            "ballerinax/discord:2.0.1:APPLICATIONCOMMANDAUTOCOMPLETERESULT",
+                            "ballerinax/discord:2.0.1:MODAL"
+                          ],
+                          "defaultValue": "ballerinax/discord:2.0.1:PONG",
+                          "required": "true",
+                          "helpTip": "",
+                          "enableCondition": [
+                            {
+                              "payloadDataType": "UpdateMessageInteractionCallbackRequest"
+                            }
+                          ]
+                        }
+                      }
+                    ]
+                  }
+                },
+                {
+                  "type": "attributeGroup",
+                  "value": {
+                    "groupName": "Advanced",
+                    "collapsed": true,
+                    "elements": [
+                      {
+                        "type": "attribute",
+                        "value": {
+                          "name": "headers",
+                          "displayName": "headers",
+                          "inputType": "stringOrExpression",
+                          "defaultValue": "{}",
+                          "required": false,
+                          "helpTip": "Expecting JSON object with key-value pairs",
+                          "validateType": "json",
+                          "matchPattern": ""
+                        }
+                      }
+                    ]
+                  }
+                }
+              ]
+            }
+          },
+          {
+            "type": "attributeGroup",
+            "value": {
+              "groupName": "Output",
+              "elements": [
+                {
+                  "type": "attribute",
+                  "value": {
+                    "name": "responseVariable",
+                    "displayName": "Output Variable Name",
+                    "inputType": "string",
+                    "defaultValue": "",
+                    "required": "false",
+                    "helpTip": "The target variable in which the output of the operation will be stored"
+                  }
+                },
+                {
+                  "type": "attribute",
+                  "value": {
+                    "name": "overwriteBody",
+                    "displayName": "Overwrite Message Body",
+                    "inputType": "checkbox",
+                    "defaultValue": "false",
+                    "helpTip": "Replace the Message Body in Message Context with the output payload of the operation (This will remove the payload from the above variable. But other elements such as headers and attributes will remain).",
+                    "required": "false"
+                  }
+                }
+              ]
+            }
+          }
+        ]
+      }
+    }
+  ]
+}

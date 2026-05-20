@@ -1,0 +1,779 @@
+{
+  "connectorName": "discord",
+  "operationName": "patchGuildsAuto_ModerationRulesByGuildIdByRuleId",
+  "title": "update_auto_moderation_rule",
+  "help": "update_auto_moderation_rule\n",
+  "elements": [
+    {
+      "type": "attributeGroup",
+      "value": {
+        "groupName": "General",
+        "elements": [
+          {
+            "type": "attribute",
+            "value": {
+              "name": "configRef",
+              "displayName": "Connection",
+              "inputType": "connection",
+              "allowedConnectionTypes": [
+                "discord_Client"
+              ],
+              "defaultType": "connection.discord_Client",
+              "defaultValue": "",
+              "required": "true",
+              "helpTip": "Connection to be used"
+            }
+          },
+          {
+            "type": "attributeGroup",
+            "value": {
+              "groupName": "Input Variables",
+              "elements": [
+                {
+                  "type": "attribute",
+                  "value": {
+                    "name": "ruleId",
+                    "displayName": "ruleId",
+                    "inputType": "stringOrExpression",
+                    "defaultValue": "",
+                    "required": true,
+                    "helpTip": "",
+                    "validateType": "",
+                    "matchPattern": ""
+                  }
+                },
+                {
+                  "type": "attribute",
+                  "value": {
+                    "name": "guildId",
+                    "displayName": "guildId",
+                    "inputType": "stringOrExpression",
+                    "defaultValue": "",
+                    "required": true,
+                    "helpTip": "",
+                    "validateType": "",
+                    "matchPattern": ""
+                  }
+                },
+                {
+                  "type": "attribute",
+                  "value": {
+                    "name": "payloadDataType",
+                    "displayName": "payloadDataType",
+                    "inputType": "combo",
+                    "comboValues": [
+                      "DefaultKeywordListUpsertRequestPartial",
+                      "KeywordUpsertRequestPartial",
+                      "MLSpamUpsertRequestPartial",
+                      "MentionSpamUpsertRequestPartial"
+                    ],
+                    "defaultValue": "DefaultKeywordListUpsertRequestPartial",
+                    "required": "true",
+                    "helpTip": ""
+                  }
+                },
+                {
+                  "type": "attributeGroup",
+                  "value": {
+                    "groupName": "Payload",
+                    "collapsed": false,
+                    "elements": [
+                      {
+                        "type": "attribute",
+                        "value": {
+                          "name": "payload_eventType",
+                          "displayName": "eventType",
+                          "inputType": "combo",
+                          "comboValues": [
+                            "ballerinax/discord:2.0.1:MESSAGESEND",
+                            "ballerinax/discord:2.0.1:GUILDMEMBERJOINORUPDATE"
+                          ],
+                          "defaultValue": "ballerinax/discord:2.0.1:MESSAGESEND",
+                          "required": "false",
+                          "helpTip": "",
+                          "enableCondition": [
+                            {
+                              "payloadDataType": "DefaultKeywordListUpsertRequestPartial"
+                            }
+                          ]
+                        }
+                      },
+                      {
+                        "type": "attribute",
+                        "value": {
+                          "name": "payload_triggerType",
+                          "displayName": "triggerType",
+                          "inputType": "combo",
+                          "comboValues": [
+                            "ballerinax/discord:2.0.1:KEYWORD",
+                            "ballerinax/discord:2.0.1:SPAMLINK",
+                            "ballerinax/discord:2.0.1:MLSPAM",
+                            "ballerinax/discord:2.0.1:DEFAULTKEYWORDLIST",
+                            "ballerinax/discord:2.0.1:MENTIONSPAM"
+                          ],
+                          "defaultValue": "ballerinax/discord:2.0.1:KEYWORD",
+                          "required": "false",
+                          "helpTip": "",
+                          "enableCondition": [
+                            {
+                              "payloadDataType": "DefaultKeywordListUpsertRequestPartial"
+                            }
+                          ]
+                        }
+                      },
+                      {
+                        "type": "attribute",
+                        "value": {
+                          "name": "payload_name",
+                          "displayName": "name",
+                          "inputType": "stringOrExpression",
+                          "defaultValue": "",
+                          "required": false,
+                          "helpTip": "",
+                          "validateType": "",
+                          "matchPattern": "",
+                          "enableCondition": [
+                            {
+                              "payloadDataType": "DefaultKeywordListUpsertRequestPartial"
+                            }
+                          ]
+                        }
+                      },
+                      {
+                        "type": "attribute",
+                        "value": {
+                          "name": "payload_exemptRoles",
+                          "displayName": "exemptRoles",
+                          "inputType": "stringOrExpression",
+                          "defaultValue": "",
+                          "required": false,
+                          "helpTip": "Expecting JSON array",
+                          "validateType": "json",
+                          "matchPattern": "",
+                          "enableCondition": [
+                            {
+                              "payloadDataType": "DefaultKeywordListUpsertRequestPartial"
+                            }
+                          ]
+                        }
+                      },
+                      {
+                        "type": "attribute",
+                        "value": {
+                          "name": "payload_exemptChannels",
+                          "displayName": "exemptChannels",
+                          "inputType": "stringOrExpression",
+                          "defaultValue": "",
+                          "required": false,
+                          "helpTip": "Expecting JSON array",
+                          "validateType": "json",
+                          "matchPattern": "",
+                          "enableCondition": [
+                            {
+                              "payloadDataType": "DefaultKeywordListUpsertRequestPartial"
+                            }
+                          ]
+                        }
+                      },
+                      {
+                        "type": "attribute",
+                        "value": {
+                          "name": "payload_actions",
+                          "displayName": "actions",
+                          "inputType": "stringOrExpression",
+                          "defaultValue": "",
+                          "required": false,
+                          "helpTip": "Expecting JSON array",
+                          "validateType": "json",
+                          "matchPattern": "",
+                          "enableCondition": [
+                            {
+                              "payloadDataType": "DefaultKeywordListUpsertRequestPartial"
+                            }
+                          ]
+                        }
+                      },
+                      {
+                        "type": "attribute",
+                        "value": {
+                          "name": "payload_enabled",
+                          "displayName": "enabled",
+                          "inputType": "boolean",
+                          "defaultValue": "",
+                          "required": false,
+                          "helpTip": "",
+                          "validateType": "",
+                          "matchPattern": "",
+                          "enableCondition": [
+                            {
+                              "payloadDataType": "DefaultKeywordListUpsertRequestPartial"
+                            }
+                          ]
+                        }
+                      },
+                      {
+                        "type": "attributeGroup",
+                        "value": {
+                          "groupName": "Trigger Metadata",
+                          "collapsed": false,
+                          "enableCondition": [
+                            {
+                              "payloadDataType": "DefaultKeywordListUpsertRequestPartial"
+                            }
+                          ],
+                          "elements": [
+                            {
+                              "type": "attribute",
+                              "value": {
+                                "name": "payload_triggerMetadata_presets",
+                                "displayName": "presets",
+                                "inputType": "stringOrExpression",
+                                "defaultValue": "",
+                                "required": false,
+                                "helpTip": "Expecting JSON array",
+                                "validateType": "json",
+                                "matchPattern": "",
+                                "enableCondition": [
+                                  {
+                                    "payloadDataType": "DefaultKeywordListUpsertRequestPartial"
+                                  }
+                                ]
+                              }
+                            },
+                            {
+                              "type": "attribute",
+                              "value": {
+                                "name": "payload_triggerMetadata_allowList",
+                                "displayName": "allowList",
+                                "inputType": "stringOrExpression",
+                                "defaultValue": "",
+                                "required": false,
+                                "helpTip": "Expecting JSON array",
+                                "validateType": "json",
+                                "matchPattern": "",
+                                "enableCondition": [
+                                  {
+                                    "payloadDataType": "DefaultKeywordListUpsertRequestPartial"
+                                  }
+                                ]
+                              }
+                            }
+                          ]
+                        }
+                      },
+                      {
+                        "type": "attribute",
+                        "value": {
+                          "name": "payload_eventType",
+                          "displayName": "eventType",
+                          "inputType": "combo",
+                          "comboValues": [
+                            "ballerinax/discord:2.0.1:MESSAGESEND",
+                            "ballerinax/discord:2.0.1:GUILDMEMBERJOINORUPDATE"
+                          ],
+                          "defaultValue": "ballerinax/discord:2.0.1:MESSAGESEND",
+                          "required": "false",
+                          "helpTip": "",
+                          "enableCondition": [
+                            {
+                              "payloadDataType": "KeywordUpsertRequestPartial"
+                            }
+                          ]
+                        }
+                      },
+                      {
+                        "type": "attribute",
+                        "value": {
+                          "name": "payload_triggerType",
+                          "displayName": "triggerType",
+                          "inputType": "combo",
+                          "comboValues": [
+                            "ballerinax/discord:2.0.1:KEYWORD",
+                            "ballerinax/discord:2.0.1:SPAMLINK",
+                            "ballerinax/discord:2.0.1:MLSPAM",
+                            "ballerinax/discord:2.0.1:DEFAULTKEYWORDLIST",
+                            "ballerinax/discord:2.0.1:MENTIONSPAM"
+                          ],
+                          "defaultValue": "ballerinax/discord:2.0.1:KEYWORD",
+                          "required": "false",
+                          "helpTip": "",
+                          "enableCondition": [
+                            {
+                              "payloadDataType": "KeywordUpsertRequestPartial"
+                            }
+                          ]
+                        }
+                      },
+                      {
+                        "type": "attribute",
+                        "value": {
+                          "name": "payload_name",
+                          "displayName": "name",
+                          "inputType": "stringOrExpression",
+                          "defaultValue": "",
+                          "required": false,
+                          "helpTip": "",
+                          "validateType": "",
+                          "matchPattern": "",
+                          "enableCondition": [
+                            {
+                              "payloadDataType": "KeywordUpsertRequestPartial"
+                            }
+                          ]
+                        }
+                      },
+                      {
+                        "type": "attribute",
+                        "value": {
+                          "name": "payload_exemptRoles",
+                          "displayName": "exemptRoles",
+                          "inputType": "stringOrExpression",
+                          "defaultValue": "",
+                          "required": false,
+                          "helpTip": "Expecting JSON array",
+                          "validateType": "json",
+                          "matchPattern": "",
+                          "enableCondition": [
+                            {
+                              "payloadDataType": "KeywordUpsertRequestPartial"
+                            }
+                          ]
+                        }
+                      },
+                      {
+                        "type": "attribute",
+                        "value": {
+                          "name": "payload_exemptChannels",
+                          "displayName": "exemptChannels",
+                          "inputType": "stringOrExpression",
+                          "defaultValue": "",
+                          "required": false,
+                          "helpTip": "Expecting JSON array",
+                          "validateType": "json",
+                          "matchPattern": "",
+                          "enableCondition": [
+                            {
+                              "payloadDataType": "KeywordUpsertRequestPartial"
+                            }
+                          ]
+                        }
+                      },
+                      {
+                        "type": "attribute",
+                        "value": {
+                          "name": "payload_actions",
+                          "displayName": "actions",
+                          "inputType": "stringOrExpression",
+                          "defaultValue": "",
+                          "required": false,
+                          "helpTip": "Expecting JSON array",
+                          "validateType": "json",
+                          "matchPattern": "",
+                          "enableCondition": [
+                            {
+                              "payloadDataType": "KeywordUpsertRequestPartial"
+                            }
+                          ]
+                        }
+                      },
+                      {
+                        "type": "attribute",
+                        "value": {
+                          "name": "payload_enabled",
+                          "displayName": "enabled",
+                          "inputType": "boolean",
+                          "defaultValue": "",
+                          "required": false,
+                          "helpTip": "",
+                          "validateType": "",
+                          "matchPattern": "",
+                          "enableCondition": [
+                            {
+                              "payloadDataType": "KeywordUpsertRequestPartial"
+                            }
+                          ]
+                        }
+                      },
+                      {
+                        "type": "attribute",
+                        "value": {
+                          "name": "payload_triggerMetadata",
+                          "displayName": "triggerMetadata",
+                          "inputType": "stringOrExpression",
+                          "defaultValue": "",
+                          "required": false,
+                          "helpTip": "Expecting JSON object",
+                          "validateType": "regex",
+                          "matchPattern": "^$|^(\\{[\\s\\S]*\\}|\\$\\{.+\\})$",
+                          "enableCondition": [
+                            {
+                              "payloadDataType": "KeywordUpsertRequestPartial"
+                            }
+                          ]
+                        }
+                      },
+                      {
+                        "type": "attribute",
+                        "value": {
+                          "name": "payload_eventType",
+                          "displayName": "eventType",
+                          "inputType": "combo",
+                          "comboValues": [
+                            "ballerinax/discord:2.0.1:MESSAGESEND",
+                            "ballerinax/discord:2.0.1:GUILDMEMBERJOINORUPDATE"
+                          ],
+                          "defaultValue": "ballerinax/discord:2.0.1:MESSAGESEND",
+                          "required": "false",
+                          "helpTip": "",
+                          "enableCondition": [
+                            {
+                              "payloadDataType": "MLSpamUpsertRequestPartial"
+                            }
+                          ]
+                        }
+                      },
+                      {
+                        "type": "attribute",
+                        "value": {
+                          "name": "payload_triggerType",
+                          "displayName": "triggerType",
+                          "inputType": "combo",
+                          "comboValues": [
+                            "ballerinax/discord:2.0.1:KEYWORD",
+                            "ballerinax/discord:2.0.1:SPAMLINK",
+                            "ballerinax/discord:2.0.1:MLSPAM",
+                            "ballerinax/discord:2.0.1:DEFAULTKEYWORDLIST",
+                            "ballerinax/discord:2.0.1:MENTIONSPAM"
+                          ],
+                          "defaultValue": "ballerinax/discord:2.0.1:KEYWORD",
+                          "required": "false",
+                          "helpTip": "",
+                          "enableCondition": [
+                            {
+                              "payloadDataType": "MLSpamUpsertRequestPartial"
+                            }
+                          ]
+                        }
+                      },
+                      {
+                        "type": "attribute",
+                        "value": {
+                          "name": "payload_name",
+                          "displayName": "name",
+                          "inputType": "stringOrExpression",
+                          "defaultValue": "",
+                          "required": false,
+                          "helpTip": "",
+                          "validateType": "",
+                          "matchPattern": "",
+                          "enableCondition": [
+                            {
+                              "payloadDataType": "MLSpamUpsertRequestPartial"
+                            }
+                          ]
+                        }
+                      },
+                      {
+                        "type": "attribute",
+                        "value": {
+                          "name": "payload_exemptRoles",
+                          "displayName": "exemptRoles",
+                          "inputType": "stringOrExpression",
+                          "defaultValue": "",
+                          "required": false,
+                          "helpTip": "Expecting JSON array",
+                          "validateType": "json",
+                          "matchPattern": "",
+                          "enableCondition": [
+                            {
+                              "payloadDataType": "MLSpamUpsertRequestPartial"
+                            }
+                          ]
+                        }
+                      },
+                      {
+                        "type": "attribute",
+                        "value": {
+                          "name": "payload_exemptChannels",
+                          "displayName": "exemptChannels",
+                          "inputType": "stringOrExpression",
+                          "defaultValue": "",
+                          "required": false,
+                          "helpTip": "Expecting JSON array",
+                          "validateType": "json",
+                          "matchPattern": "",
+                          "enableCondition": [
+                            {
+                              "payloadDataType": "MLSpamUpsertRequestPartial"
+                            }
+                          ]
+                        }
+                      },
+                      {
+                        "type": "attribute",
+                        "value": {
+                          "name": "payload_actions",
+                          "displayName": "actions",
+                          "inputType": "stringOrExpression",
+                          "defaultValue": "",
+                          "required": false,
+                          "helpTip": "Expecting JSON array",
+                          "validateType": "json",
+                          "matchPattern": "",
+                          "enableCondition": [
+                            {
+                              "payloadDataType": "MLSpamUpsertRequestPartial"
+                            }
+                          ]
+                        }
+                      },
+                      {
+                        "type": "attribute",
+                        "value": {
+                          "name": "payload_enabled",
+                          "displayName": "enabled",
+                          "inputType": "boolean",
+                          "defaultValue": "",
+                          "required": false,
+                          "helpTip": "",
+                          "validateType": "",
+                          "matchPattern": "",
+                          "enableCondition": [
+                            {
+                              "payloadDataType": "MLSpamUpsertRequestPartial"
+                            }
+                          ]
+                        }
+                      },
+                      {
+                        "type": "attribute",
+                        "value": {
+                          "name": "payload_triggerMetadata",
+                          "displayName": "triggerMetadata",
+                          "inputType": "stringOrExpression",
+                          "defaultValue": "",
+                          "required": false,
+                          "helpTip": "Expecting JSON object",
+                          "validateType": "regex",
+                          "matchPattern": "^$|^(\\{[\\s\\S]*\\}|\\$\\{.+\\})$",
+                          "enableCondition": [
+                            {
+                              "payloadDataType": "MLSpamUpsertRequestPartial"
+                            }
+                          ]
+                        }
+                      },
+                      {
+                        "type": "attribute",
+                        "value": {
+                          "name": "payload_eventType",
+                          "displayName": "eventType",
+                          "inputType": "combo",
+                          "comboValues": [
+                            "ballerinax/discord:2.0.1:MESSAGESEND",
+                            "ballerinax/discord:2.0.1:GUILDMEMBERJOINORUPDATE"
+                          ],
+                          "defaultValue": "ballerinax/discord:2.0.1:MESSAGESEND",
+                          "required": "false",
+                          "helpTip": "",
+                          "enableCondition": [
+                            {
+                              "payloadDataType": "MentionSpamUpsertRequestPartial"
+                            }
+                          ]
+                        }
+                      },
+                      {
+                        "type": "attribute",
+                        "value": {
+                          "name": "payload_triggerType",
+                          "displayName": "triggerType",
+                          "inputType": "combo",
+                          "comboValues": [
+                            "ballerinax/discord:2.0.1:KEYWORD",
+                            "ballerinax/discord:2.0.1:SPAMLINK",
+                            "ballerinax/discord:2.0.1:MLSPAM",
+                            "ballerinax/discord:2.0.1:DEFAULTKEYWORDLIST",
+                            "ballerinax/discord:2.0.1:MENTIONSPAM"
+                          ],
+                          "defaultValue": "ballerinax/discord:2.0.1:KEYWORD",
+                          "required": "false",
+                          "helpTip": "",
+                          "enableCondition": [
+                            {
+                              "payloadDataType": "MentionSpamUpsertRequestPartial"
+                            }
+                          ]
+                        }
+                      },
+                      {
+                        "type": "attribute",
+                        "value": {
+                          "name": "payload_name",
+                          "displayName": "name",
+                          "inputType": "stringOrExpression",
+                          "defaultValue": "",
+                          "required": false,
+                          "helpTip": "",
+                          "validateType": "",
+                          "matchPattern": "",
+                          "enableCondition": [
+                            {
+                              "payloadDataType": "MentionSpamUpsertRequestPartial"
+                            }
+                          ]
+                        }
+                      },
+                      {
+                        "type": "attribute",
+                        "value": {
+                          "name": "payload_exemptRoles",
+                          "displayName": "exemptRoles",
+                          "inputType": "stringOrExpression",
+                          "defaultValue": "",
+                          "required": false,
+                          "helpTip": "Expecting JSON array",
+                          "validateType": "json",
+                          "matchPattern": "",
+                          "enableCondition": [
+                            {
+                              "payloadDataType": "MentionSpamUpsertRequestPartial"
+                            }
+                          ]
+                        }
+                      },
+                      {
+                        "type": "attribute",
+                        "value": {
+                          "name": "payload_exemptChannels",
+                          "displayName": "exemptChannels",
+                          "inputType": "stringOrExpression",
+                          "defaultValue": "",
+                          "required": false,
+                          "helpTip": "Expecting JSON array",
+                          "validateType": "json",
+                          "matchPattern": "",
+                          "enableCondition": [
+                            {
+                              "payloadDataType": "MentionSpamUpsertRequestPartial"
+                            }
+                          ]
+                        }
+                      },
+                      {
+                        "type": "attribute",
+                        "value": {
+                          "name": "payload_actions",
+                          "displayName": "actions",
+                          "inputType": "stringOrExpression",
+                          "defaultValue": "",
+                          "required": false,
+                          "helpTip": "Expecting JSON array",
+                          "validateType": "json",
+                          "matchPattern": "",
+                          "enableCondition": [
+                            {
+                              "payloadDataType": "MentionSpamUpsertRequestPartial"
+                            }
+                          ]
+                        }
+                      },
+                      {
+                        "type": "attribute",
+                        "value": {
+                          "name": "payload_enabled",
+                          "displayName": "enabled",
+                          "inputType": "boolean",
+                          "defaultValue": "",
+                          "required": false,
+                          "helpTip": "",
+                          "validateType": "",
+                          "matchPattern": "",
+                          "enableCondition": [
+                            {
+                              "payloadDataType": "MentionSpamUpsertRequestPartial"
+                            }
+                          ]
+                        }
+                      },
+                      {
+                        "type": "attribute",
+                        "value": {
+                          "name": "payload_triggerMetadata",
+                          "displayName": "triggerMetadata",
+                          "inputType": "stringOrExpression",
+                          "defaultValue": "",
+                          "required": false,
+                          "helpTip": "Expecting JSON object",
+                          "validateType": "regex",
+                          "matchPattern": "^$|^(\\{[\\s\\S]*\\}|\\$\\{.+\\})$",
+                          "enableCondition": [
+                            {
+                              "payloadDataType": "MentionSpamUpsertRequestPartial"
+                            }
+                          ]
+                        }
+                      }
+                    ]
+                  }
+                },
+                {
+                  "type": "attributeGroup",
+                  "value": {
+                    "groupName": "Advanced",
+                    "collapsed": true,
+                    "elements": [
+                      {
+                        "type": "attribute",
+                        "value": {
+                          "name": "headers",
+                          "displayName": "headers",
+                          "inputType": "stringOrExpression",
+                          "defaultValue": "{}",
+                          "required": false,
+                          "helpTip": "Expecting JSON object with key-value pairs",
+                          "validateType": "json",
+                          "matchPattern": ""
+                        }
+                      }
+                    ]
+                  }
+                }
+              ]
+            }
+          },
+          {
+            "type": "attributeGroup",
+            "value": {
+              "groupName": "Output",
+              "elements": [
+                {
+                  "type": "attribute",
+                  "value": {
+                    "name": "responseVariable",
+                    "displayName": "Output Variable Name",
+                    "inputType": "string",
+                    "defaultValue": "",
+                    "required": "false",
+                    "helpTip": "The target variable in which the output of the operation will be stored"
+                  }
+                },
+                {
+                  "type": "attribute",
+                  "value": {
+                    "name": "overwriteBody",
+                    "displayName": "Overwrite Message Body",
+                    "inputType": "checkbox",
+                    "defaultValue": "false",
+                    "helpTip": "Replace the Message Body in Message Context with the output payload of the operation (This will remove the payload from the above variable. But other elements such as headers and attributes will remain).",
+                    "required": "false"
+                  }
+                }
+              ]
+            }
+          }
+        ]
+      }
+    }
+  ]
+}
