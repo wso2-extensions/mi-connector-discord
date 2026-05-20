@@ -1,0 +1,723 @@
+{
+  "connectorName": "discord",
+  "operationName": "patchChannelsByChannelId",
+  "title": "update_channel",
+  "help": "update_channel\n",
+  "elements": [
+    {
+      "type": "attributeGroup",
+      "value": {
+        "groupName": "General",
+        "elements": [
+          {
+            "type": "attribute",
+            "value": {
+              "name": "configRef",
+              "displayName": "Connection",
+              "inputType": "connection",
+              "allowedConnectionTypes": [
+                "discord_Client"
+              ],
+              "defaultType": "connection.discord_Client",
+              "defaultValue": "",
+              "required": "true",
+              "helpTip": "Connection to be used"
+            }
+          },
+          {
+            "type": "attributeGroup",
+            "value": {
+              "groupName": "Input Variables",
+              "elements": [
+                {
+                  "type": "attribute",
+                  "value": {
+                    "name": "channelId",
+                    "displayName": "channelId",
+                    "inputType": "stringOrExpression",
+                    "defaultValue": "",
+                    "required": true,
+                    "helpTip": "",
+                    "validateType": "",
+                    "matchPattern": ""
+                  }
+                },
+                {
+                  "type": "attribute",
+                  "value": {
+                    "name": "payloadDataType",
+                    "displayName": "payloadDataType",
+                    "inputType": "combo",
+                    "comboValues": [
+                      "PrivateChannelRequestPartial",
+                      "UpdateGuildChannelRequestPartial",
+                      "UpdateThreadRequestPartial"
+                    ],
+                    "defaultValue": "PrivateChannelRequestPartial",
+                    "required": "true",
+                    "helpTip": ""
+                  }
+                },
+                {
+                  "type": "attributeGroup",
+                  "value": {
+                    "groupName": "Payload",
+                    "collapsed": false,
+                    "elements": [
+                      {
+                        "type": "attribute",
+                        "value": {
+                          "name": "payload_name",
+                          "displayName": "name",
+                          "inputType": "stringOrExpression",
+                          "defaultValue": "",
+                          "required": false,
+                          "helpTip": "",
+                          "validateType": "",
+                          "matchPattern": "",
+                          "enableCondition": [
+                            {
+                              "payloadDataType": "PrivateChannelRequestPartial"
+                            }
+                          ]
+                        }
+                      },
+                      {
+                        "type": "attribute",
+                        "value": {
+                          "name": "payload_icon",
+                          "displayName": "icon",
+                          "inputType": "stringOrExpression",
+                          "defaultValue": "",
+                          "required": false,
+                          "helpTip": "",
+                          "validateType": "",
+                          "matchPattern": "",
+                          "enableCondition": [
+                            {
+                              "payloadDataType": "PrivateChannelRequestPartial"
+                            }
+                          ]
+                        }
+                      },
+                      {
+                        "type": "attribute",
+                        "value": {
+                          "name": "payload_nsfw",
+                          "displayName": "nsfw",
+                          "inputType": "boolean",
+                          "defaultValue": "",
+                          "required": false,
+                          "helpTip": "",
+                          "validateType": "",
+                          "matchPattern": "",
+                          "enableCondition": [
+                            {
+                              "payloadDataType": "UpdateGuildChannelRequestPartial"
+                            }
+                          ]
+                        }
+                      },
+                      {
+                        "type": "attribute",
+                        "value": {
+                          "name": "payload_rateLimitPerUser",
+                          "displayName": "rateLimitPerUser",
+                          "inputType": "stringOrExpression",
+                          "defaultValue": "",
+                          "required": false,
+                          "helpTip": "",
+                          "validateType": "regex",
+                          "matchPattern": "^$|^(-?\\d+|\\$\\{.+\\})$",
+                          "enableCondition": [
+                            {
+                              "payloadDataType": "UpdateGuildChannelRequestPartial"
+                            }
+                          ]
+                        }
+                      },
+                      {
+                        "type": "attribute",
+                        "value": {
+                          "name": "payload_flags",
+                          "displayName": "flags",
+                          "inputType": "stringOrExpression",
+                          "defaultValue": "",
+                          "required": false,
+                          "helpTip": "",
+                          "validateType": "regex",
+                          "matchPattern": "^$|^(-?\\d+|\\$\\{.+\\})$",
+                          "enableCondition": [
+                            {
+                              "payloadDataType": "UpdateGuildChannelRequestPartial"
+                            }
+                          ]
+                        }
+                      },
+                      {
+                        "type": "attribute",
+                        "value": {
+                          "name": "payload_bitrate",
+                          "displayName": "bitrate",
+                          "inputType": "stringOrExpression",
+                          "defaultValue": "",
+                          "required": false,
+                          "helpTip": "",
+                          "validateType": "regex",
+                          "matchPattern": "^$|^(-?\\d+|\\$\\{.+\\})$",
+                          "enableCondition": [
+                            {
+                              "payloadDataType": "UpdateGuildChannelRequestPartial"
+                            }
+                          ]
+                        }
+                      },
+                      {
+                        "type": "attribute",
+                        "value": {
+                          "name": "payload_type",
+                          "displayName": "type",
+                          "inputType": "stringOrExpression",
+                          "defaultValue": "",
+                          "required": false,
+                          "helpTip": "Expecting JSON object",
+                          "validateType": "regex",
+                          "matchPattern": "^$|^(\\{[\\s\\S]*\\}|\\$\\{.+\\})$",
+                          "enableCondition": [
+                            {
+                              "payloadDataType": "UpdateGuildChannelRequestPartial"
+                            }
+                          ]
+                        }
+                      },
+                      {
+                        "type": "attribute",
+                        "value": {
+                          "name": "payload_userLimit",
+                          "displayName": "userLimit",
+                          "inputType": "stringOrExpression",
+                          "defaultValue": "",
+                          "required": false,
+                          "helpTip": "",
+                          "validateType": "regex",
+                          "matchPattern": "^$|^(-?\\d+|\\$\\{.+\\})$",
+                          "enableCondition": [
+                            {
+                              "payloadDataType": "UpdateGuildChannelRequestPartial"
+                            }
+                          ]
+                        }
+                      },
+                      {
+                        "type": "attribute",
+                        "value": {
+                          "name": "payload_permissionOverwrites",
+                          "displayName": "permissionOverwrites",
+                          "inputType": "stringOrExpression",
+                          "defaultValue": "",
+                          "required": false,
+                          "helpTip": "Expecting JSON array",
+                          "validateType": "json",
+                          "matchPattern": "",
+                          "enableCondition": [
+                            {
+                              "payloadDataType": "UpdateGuildChannelRequestPartial"
+                            }
+                          ]
+                        }
+                      },
+                      {
+                        "type": "attribute",
+                        "value": {
+                          "name": "payload_rtcRegion",
+                          "displayName": "rtcRegion",
+                          "inputType": "stringOrExpression",
+                          "defaultValue": "",
+                          "required": false,
+                          "helpTip": "",
+                          "validateType": "",
+                          "matchPattern": "",
+                          "enableCondition": [
+                            {
+                              "payloadDataType": "UpdateGuildChannelRequestPartial"
+                            }
+                          ]
+                        }
+                      },
+                      {
+                        "type": "attribute",
+                        "value": {
+                          "name": "payload_defaultThreadRateLimitPerUser",
+                          "displayName": "defaultThreadRateLimitPerUser",
+                          "inputType": "stringOrExpression",
+                          "defaultValue": "",
+                          "required": false,
+                          "helpTip": "",
+                          "validateType": "regex",
+                          "matchPattern": "^$|^(-?\\d+|\\$\\{.+\\})$",
+                          "enableCondition": [
+                            {
+                              "payloadDataType": "UpdateGuildChannelRequestPartial"
+                            }
+                          ]
+                        }
+                      },
+                      {
+                        "type": "attribute",
+                        "value": {
+                          "name": "payload_defaultAutoArchiveDuration",
+                          "displayName": "defaultAutoArchiveDuration",
+                          "inputType": "stringOrExpression",
+                          "defaultValue": "",
+                          "required": false,
+                          "helpTip": "Expecting JSON object",
+                          "validateType": "regex",
+                          "matchPattern": "^$|^(\\{[\\s\\S]*\\}|\\$\\{.+\\})$",
+                          "enableCondition": [
+                            {
+                              "payloadDataType": "UpdateGuildChannelRequestPartial"
+                            }
+                          ]
+                        }
+                      },
+                      {
+                        "type": "attribute",
+                        "value": {
+                          "name": "payload_parentId",
+                          "displayName": "parentId",
+                          "inputType": "stringOrExpression",
+                          "defaultValue": "",
+                          "required": false,
+                          "helpTip": "Expecting JSON object",
+                          "validateType": "regex",
+                          "matchPattern": "^$|^(\\{[\\s\\S]*\\}|\\$\\{.+\\})$",
+                          "enableCondition": [
+                            {
+                              "payloadDataType": "UpdateGuildChannelRequestPartial"
+                            }
+                          ]
+                        }
+                      },
+                      {
+                        "type": "attribute",
+                        "value": {
+                          "name": "payload_defaultReactionEmoji",
+                          "displayName": "defaultReactionEmoji",
+                          "inputType": "stringOrExpression",
+                          "defaultValue": "",
+                          "required": false,
+                          "helpTip": "Expecting JSON object",
+                          "validateType": "regex",
+                          "matchPattern": "^$|^(\\{[\\s\\S]*\\}|\\$\\{.+\\})$",
+                          "enableCondition": [
+                            {
+                              "payloadDataType": "UpdateGuildChannelRequestPartial"
+                            }
+                          ]
+                        }
+                      },
+                      {
+                        "type": "attribute",
+                        "value": {
+                          "name": "payload_name",
+                          "displayName": "name",
+                          "inputType": "stringOrExpression",
+                          "defaultValue": "",
+                          "required": false,
+                          "helpTip": "",
+                          "validateType": "",
+                          "matchPattern": "",
+                          "enableCondition": [
+                            {
+                              "payloadDataType": "UpdateGuildChannelRequestPartial"
+                            }
+                          ]
+                        }
+                      },
+                      {
+                        "type": "attribute",
+                        "value": {
+                          "name": "payload_topic",
+                          "displayName": "topic",
+                          "inputType": "stringOrExpression",
+                          "defaultValue": "",
+                          "required": false,
+                          "helpTip": "",
+                          "validateType": "",
+                          "matchPattern": "",
+                          "enableCondition": [
+                            {
+                              "payloadDataType": "UpdateGuildChannelRequestPartial"
+                            }
+                          ]
+                        }
+                      },
+                      {
+                        "type": "attribute",
+                        "value": {
+                          "name": "payload_defaultForumLayout",
+                          "displayName": "defaultForumLayout",
+                          "inputType": "stringOrExpression",
+                          "defaultValue": "",
+                          "required": false,
+                          "helpTip": "Expecting JSON object",
+                          "validateType": "regex",
+                          "matchPattern": "^$|^(\\{[\\s\\S]*\\}|\\$\\{.+\\})$",
+                          "enableCondition": [
+                            {
+                              "payloadDataType": "UpdateGuildChannelRequestPartial"
+                            }
+                          ]
+                        }
+                      },
+                      {
+                        "type": "attribute",
+                        "value": {
+                          "name": "payload_position",
+                          "displayName": "position",
+                          "inputType": "stringOrExpression",
+                          "defaultValue": "",
+                          "required": false,
+                          "helpTip": "",
+                          "validateType": "regex",
+                          "matchPattern": "^$|^(-?\\d+|\\$\\{.+\\})$",
+                          "enableCondition": [
+                            {
+                              "payloadDataType": "UpdateGuildChannelRequestPartial"
+                            }
+                          ]
+                        }
+                      },
+                      {
+                        "type": "attribute",
+                        "value": {
+                          "name": "payload_availableTags",
+                          "displayName": "availableTags",
+                          "inputType": "stringOrExpression",
+                          "defaultValue": "",
+                          "required": false,
+                          "helpTip": "Expecting JSON array",
+                          "validateType": "json",
+                          "matchPattern": "",
+                          "enableCondition": [
+                            {
+                              "payloadDataType": "UpdateGuildChannelRequestPartial"
+                            }
+                          ]
+                        }
+                      },
+                      {
+                        "type": "attribute",
+                        "value": {
+                          "name": "payload_videoQualityMode",
+                          "displayName": "videoQualityMode",
+                          "inputType": "stringOrExpression",
+                          "defaultValue": "",
+                          "required": false,
+                          "helpTip": "Expecting JSON object",
+                          "validateType": "regex",
+                          "matchPattern": "^$|^(\\{[\\s\\S]*\\}|\\$\\{.+\\})$",
+                          "enableCondition": [
+                            {
+                              "payloadDataType": "UpdateGuildChannelRequestPartial"
+                            }
+                          ]
+                        }
+                      },
+                      {
+                        "type": "attribute",
+                        "value": {
+                          "name": "payload_defaultSortOrder",
+                          "displayName": "defaultSortOrder",
+                          "inputType": "stringOrExpression",
+                          "defaultValue": "",
+                          "required": false,
+                          "helpTip": "Expecting JSON object",
+                          "validateType": "regex",
+                          "matchPattern": "^$|^(\\{[\\s\\S]*\\}|\\$\\{.+\\})$",
+                          "enableCondition": [
+                            {
+                              "payloadDataType": "UpdateGuildChannelRequestPartial"
+                            }
+                          ]
+                        }
+                      },
+                      {
+                        "type": "attribute",
+                        "value": {
+                          "name": "payload_archived",
+                          "displayName": "archived",
+                          "inputType": "boolean",
+                          "defaultValue": "",
+                          "required": false,
+                          "helpTip": "",
+                          "validateType": "",
+                          "matchPattern": "",
+                          "enableCondition": [
+                            {
+                              "payloadDataType": "UpdateThreadRequestPartial"
+                            }
+                          ]
+                        }
+                      },
+                      {
+                        "type": "attribute",
+                        "value": {
+                          "name": "payload_rtcRegion",
+                          "displayName": "rtcRegion",
+                          "inputType": "stringOrExpression",
+                          "defaultValue": "",
+                          "required": false,
+                          "helpTip": "",
+                          "validateType": "",
+                          "matchPattern": "",
+                          "enableCondition": [
+                            {
+                              "payloadDataType": "UpdateThreadRequestPartial"
+                            }
+                          ]
+                        }
+                      },
+                      {
+                        "type": "attribute",
+                        "value": {
+                          "name": "payload_rateLimitPerUser",
+                          "displayName": "rateLimitPerUser",
+                          "inputType": "stringOrExpression",
+                          "defaultValue": "",
+                          "required": false,
+                          "helpTip": "",
+                          "validateType": "regex",
+                          "matchPattern": "^$|^(-?\\d+|\\$\\{.+\\})$",
+                          "enableCondition": [
+                            {
+                              "payloadDataType": "UpdateThreadRequestPartial"
+                            }
+                          ]
+                        }
+                      },
+                      {
+                        "type": "attribute",
+                        "value": {
+                          "name": "payload_name",
+                          "displayName": "name",
+                          "inputType": "stringOrExpression",
+                          "defaultValue": "",
+                          "required": false,
+                          "helpTip": "",
+                          "validateType": "",
+                          "matchPattern": "",
+                          "enableCondition": [
+                            {
+                              "payloadDataType": "UpdateThreadRequestPartial"
+                            }
+                          ]
+                        }
+                      },
+                      {
+                        "type": "attribute",
+                        "value": {
+                          "name": "payload_flags",
+                          "displayName": "flags",
+                          "inputType": "stringOrExpression",
+                          "defaultValue": "",
+                          "required": false,
+                          "helpTip": "",
+                          "validateType": "regex",
+                          "matchPattern": "^$|^(-?\\d+|\\$\\{.+\\})$",
+                          "enableCondition": [
+                            {
+                              "payloadDataType": "UpdateThreadRequestPartial"
+                            }
+                          ]
+                        }
+                      },
+                      {
+                        "type": "attribute",
+                        "value": {
+                          "name": "payload_invitable",
+                          "displayName": "invitable",
+                          "inputType": "boolean",
+                          "defaultValue": "",
+                          "required": false,
+                          "helpTip": "",
+                          "validateType": "",
+                          "matchPattern": "",
+                          "enableCondition": [
+                            {
+                              "payloadDataType": "UpdateThreadRequestPartial"
+                            }
+                          ]
+                        }
+                      },
+                      {
+                        "type": "attribute",
+                        "value": {
+                          "name": "payload_bitrate",
+                          "displayName": "bitrate",
+                          "inputType": "stringOrExpression",
+                          "defaultValue": "",
+                          "required": false,
+                          "helpTip": "",
+                          "validateType": "regex",
+                          "matchPattern": "^$|^(-?\\d+|\\$\\{.+\\})$",
+                          "enableCondition": [
+                            {
+                              "payloadDataType": "UpdateThreadRequestPartial"
+                            }
+                          ]
+                        }
+                      },
+                      {
+                        "type": "attribute",
+                        "value": {
+                          "name": "payload_locked",
+                          "displayName": "locked",
+                          "inputType": "boolean",
+                          "defaultValue": "",
+                          "required": false,
+                          "helpTip": "",
+                          "validateType": "",
+                          "matchPattern": "",
+                          "enableCondition": [
+                            {
+                              "payloadDataType": "UpdateThreadRequestPartial"
+                            }
+                          ]
+                        }
+                      },
+                      {
+                        "type": "attribute",
+                        "value": {
+                          "name": "payload_userLimit",
+                          "displayName": "userLimit",
+                          "inputType": "stringOrExpression",
+                          "defaultValue": "",
+                          "required": false,
+                          "helpTip": "",
+                          "validateType": "regex",
+                          "matchPattern": "^$|^(-?\\d+|\\$\\{.+\\})$",
+                          "enableCondition": [
+                            {
+                              "payloadDataType": "UpdateThreadRequestPartial"
+                            }
+                          ]
+                        }
+                      },
+                      {
+                        "type": "attribute",
+                        "value": {
+                          "name": "payload_autoArchiveDuration",
+                          "displayName": "autoArchiveDuration",
+                          "inputType": "stringOrExpression",
+                          "defaultValue": "",
+                          "required": false,
+                          "helpTip": "Expecting JSON object",
+                          "validateType": "regex",
+                          "matchPattern": "^$|^(\\{[\\s\\S]*\\}|\\$\\{.+\\})$",
+                          "enableCondition": [
+                            {
+                              "payloadDataType": "UpdateThreadRequestPartial"
+                            }
+                          ]
+                        }
+                      },
+                      {
+                        "type": "attribute",
+                        "value": {
+                          "name": "payload_appliedTags",
+                          "displayName": "appliedTags",
+                          "inputType": "stringOrExpression",
+                          "defaultValue": "",
+                          "required": false,
+                          "helpTip": "Expecting JSON array",
+                          "validateType": "json",
+                          "matchPattern": "",
+                          "enableCondition": [
+                            {
+                              "payloadDataType": "UpdateThreadRequestPartial"
+                            }
+                          ]
+                        }
+                      },
+                      {
+                        "type": "attribute",
+                        "value": {
+                          "name": "payload_videoQualityMode",
+                          "displayName": "videoQualityMode",
+                          "inputType": "stringOrExpression",
+                          "defaultValue": "",
+                          "required": false,
+                          "helpTip": "Expecting JSON object",
+                          "validateType": "regex",
+                          "matchPattern": "^$|^(\\{[\\s\\S]*\\}|\\$\\{.+\\})$",
+                          "enableCondition": [
+                            {
+                              "payloadDataType": "UpdateThreadRequestPartial"
+                            }
+                          ]
+                        }
+                      }
+                    ]
+                  }
+                },
+                {
+                  "type": "attributeGroup",
+                  "value": {
+                    "groupName": "Advanced",
+                    "collapsed": true,
+                    "elements": [
+                      {
+                        "type": "attribute",
+                        "value": {
+                          "name": "headers",
+                          "displayName": "headers",
+                          "inputType": "stringOrExpression",
+                          "defaultValue": "{}",
+                          "required": false,
+                          "helpTip": "Expecting JSON object with key-value pairs",
+                          "validateType": "json",
+                          "matchPattern": ""
+                        }
+                      }
+                    ]
+                  }
+                }
+              ]
+            }
+          },
+          {
+            "type": "attributeGroup",
+            "value": {
+              "groupName": "Output",
+              "elements": [
+                {
+                  "type": "attribute",
+                  "value": {
+                    "name": "responseVariable",
+                    "displayName": "Output Variable Name",
+                    "inputType": "string",
+                    "defaultValue": "",
+                    "required": "false",
+                    "helpTip": "The target variable in which the output of the operation will be stored"
+                  }
+                },
+                {
+                  "type": "attribute",
+                  "value": {
+                    "name": "overwriteBody",
+                    "displayName": "Overwrite Message Body",
+                    "inputType": "checkbox",
+                    "defaultValue": "false",
+                    "helpTip": "Replace the Message Body in Message Context with the output payload of the operation (This will remove the payload from the above variable. But other elements such as headers and attributes will remain).",
+                    "required": "false"
+                  }
+                }
+              ]
+            }
+          }
+        ]
+      }
+    }
+  ]
+}

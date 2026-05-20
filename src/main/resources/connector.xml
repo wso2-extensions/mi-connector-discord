@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  ~ Copyright (c) 2025, WSO2 LLC. (https://www.wso2.com).
+  ~
+  ~ WSO2 LLC. licenses this file to you under the Apache License,
+  ~ Version 2.0 (the "License"); you may not use this file except
+  ~ in compliance with the License.
+  ~ You may obtain a copy of the License at
+  ~
+  ~ http://www.apache.org/licenses/LICENSE-2.0
+  ~
+  ~ Unless required by applicable law or agreed to in writing,
+  ~ software distributed under the License is distributed on an
+  ~ "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+  ~ KIND, either express or implied.  See the License for the
+  ~ specific language governing permissions and limitations
+  ~ under the License.
+  -->
+<connector>
+    <component name="discord" package="io.ballerina.stdlib.mi">
+        <dependency component="config"/>
+        <dependency component="functions"/>
+        <description>## Overview
+
+[Discord](https://discord.com/) is a communication platform designed for creating communities and facilitating real-time messaging, voice, and video interactions. It serves as a hub for diverse groups, from gaming communities to professional teams.
+
+The Discord connector offers APIs to connect and interact with the Discord REST API, enabling the integration of messaging, user management, and community engagement features into applications.
+
+### Key Features
+
+- Real-time messaging and community management
+- Support for Discord REST API v10
+- Manage users, roles, and channels programmatically
+- Secure communication with OAuth2 authentication
+
+## Setup guide
+
+Follow these steps to create a Discord developer account.
+
+### Step 1: Login to Discord developer page
+
+1. Visit [Discord developer portal](https://discord.com/login?redirect_to&#x3D;%2Fdevelopers) by logging into your Discord account. 
+
+    &lt;img src&#x3D;&quot;https://github.com/ballerina-platform/module-ballerinax-discord/blob/main/docs/setup/resources/discord-dev-page.png?raw&#x3D;true&quot; alt&#x3D;&quot;Discord Dev Page&quot; style&#x3D;&quot;width: 70%;&quot;&gt;
+
+2. If you do not have a Discord account already, [create a new discord account](https://discord.com/login) by clicking on the &#x60;Register&#x60; hyperlink below the &#x60;Log In&#x60; button when opening the Discord developer page.
+
+    &lt;img src&#x3D; &quot;https://github.com/ballerina-platform/module-ballerinax-discord/blob/main/docs/setup/resources/create-acc.png?raw&#x3D;true&quot; alt&#x3D;&quot;Create Discord Account&quot; style&#x3D;&quot;width: 70%;&quot;&gt;
+
+3. Complete the account creation process by including the relevant information in the given fields.
+
+### Step 2: Make a new Discord application
+
+1. Once in the Discord developer portal is open, click on the &#x60;New Application&#x60; button as displayed above to start the process.
+
+    &lt;img src&#x3D;&quot;https://github.com/ballerina-platform/module-ballerinax-discord/blob/main/docs/setup/resources/make-new-app.png?raw&#x3D;true&quot; alt&#x3D;&quot;Make New Application&quot; style&#x3D;&quot;width: 70%;&quot;&gt;
+
+### Step 3: Name the Discord Application 
+
+1. Proceed by giving the Discord Application a name and click on the terms of service.
+
+    &lt;img src&#x3D;&quot;https://github.com/ballerina-platform/module-ballerinax-discord/blob/main/docs/setup/resources/create-app.png?raw&#x3D;true&quot; alt&#x3D;&quot;Name and Create the App&quot; style&#x3D;&quot;width: 70%;&quot;&gt;
+
+2. Finally complete the naming process by clicking on the &#x60;next&#x60; button.
+
+### Step 4: Obtain the Client ID and Client Secret
+
+1. Under the &#x60;OAuth2&#x60; section found on the left-sided list, locate the Client&#x27;s Information as shown on the screen. To implement the functionalities provided by Discord&#x27;s API, you will need the Client ID and Client Secret.
+
+    &lt;img src&#x3D;&quot;https://github.com/ballerina-platform/module-ballerinax-discord/blob/main/docs/setup/resources/obtain-client-id.png?raw&#x3D;true&quot; alt&#x3D;&quot;Obtain Client ID and Secret&quot; style&#x3D;&quot;width: 70%;&quot;&gt;
+
+## Quickstart
+
+To use the &#x60;discord&#x60; connector in your Ballerina application, modify the &#x60;.bal&#x60; file as follows:
+
+### Step 1: Import the module
+
+Import the &#x60;discord&#x60; module.
+
+&#x60;&#x60;&#x60;ballerina
+import ballerinax/discord;
+&#x60;&#x60;&#x60;
+
+### Step 2: Instantiate a new connector
+
+Create a &#x60;discord:ConnectionConfig&#x60; with the obtained OAuth2.0 Client Credentials and initialize the connector with it.
+
+Apps must receive approval from users installing them to perform actions within Discord. To enable these functions, specific scopes must be defined. These scopes are outlined in the [OAuth2 Scopes documentation](https://discord.com/developers/docs/topics/oauth2#shared-resources-oauth2-scopes).
+
+&#x60;&#x60;&#x60;ballerina
+configurable string clientId &#x3D; ?;
+configurable string clientSecret &#x3D; ?;
+configurable string[] scopes &#x3D; ?;
+
+discord:Client discord &#x3D; check new({
+    auth: {
+            clientId,
+            clientSecret,
+            scopes
+        }
+});
+&#x60;&#x60;&#x60;
+
+### Step 3: Invoke the connector operation
+Now, utilize the available connector operations.
+
+### Return linked third-party accounts of the user
+
+&#x60;&#x60;&#x60;ballerina
+public function main() returns error? {
+    ConnectedAccountResponse[] connectedAccounts &#x3D; check discord-&gt;/users/\@me/connections();
+}
+&#x60;&#x60;&#x60;&#x60;
+
+### Step 4: Run the Ballerina application
+
+&#x60;&#x60;&#x60;bash
+bal run
+&#x60;&#x60;&#x60;
+
+## Examples
+
+The &#x60;Discord&#x60; connector provides practical examples illustrating usage in various scenarios. Explore these [examples](https://github.com/ballerina-platform/module-ballerinax-discord/tree/main/examples/), covering the following use cases:
+
+1. [Automated Event Reminders](https://github.com/ballerina-platform/module-ballerinax-discord/tree/main/examples/automated-event-reminders) - This use case illustrates how the Discord API can be leveraged to create a scheduled event in a Discord server and automate daily reminders about this event across all channels within the server.
+2. [Automated Role Assignment Based on Reactions](https://github.com/ballerina-platform/module-ballerinax-discord/tree/main/examples/automated-role-assignment) - This use case illustrates the utilization of the Discord API to assign roles to members based on their interests, enabling them to gain roles by reacting to designated messages.</description>
+    </component>
+    <icon>icon/icon-small.png</icon>
+    <displayName>discord</displayName>
+</connector>

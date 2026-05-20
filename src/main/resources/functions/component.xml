@@ -1,0 +1,937 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  ~ Copyright (c) 2025, WSO2 LLC. (https://www.wso2.com).
+  ~
+  ~ WSO2 LLC. licenses this file to you under the Apache License,
+  ~ Version 2.0 (the "License"); you may not use this file except
+  ~ in compliance with the License.
+  ~ You may obtain a copy of the License at
+  ~
+  ~ http://www.apache.org/licenses/LICENSE-2.0
+  ~
+  ~ Unless required by applicable law or agreed to in writing,
+  ~ software distributed under the License is distributed on an
+  ~ "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+  ~ KIND, either express or implied.  See the License for the
+  ~ specific language governing permissions and limitations
+  ~ under the License.
+  -->
+<component name="functions" type="synapse/template">
+    <subComponents>
+        <component name="getUsers__me">
+            <displayName>get_my_user</displayName>
+            <file>getusers_Me.xml</file>
+            <description>get_my_user</description>
+        </component>
+        <component name="deleteChannelsPermissionsByChannelIdByOverwriteId">
+            <displayName>delete_channel_permission_overwrite</displayName>
+            <file>deleteChannelsPermissionsByChannelIdByOverwriteId.xml</file>
+            <description>delete_channel_permission_overwrite</description>
+        </component>
+        <component name="deleteWebhooksMessagesByWebhookIdByWebhookTokenByMessageId">
+            <displayName>delete_webhook_message</displayName>
+            <file>deleteWebhooksMessagesByWebhookIdByWebhookTokenByMessageId.xml</file>
+            <description>delete_webhook_message</description>
+        </component>
+        <component name="getGuildsPruneByGuildId">
+            <displayName>preview_prune_guild</displayName>
+            <file>getGuildsPruneByGuildId.xml</file>
+            <description>preview_prune_guild</description>
+        </component>
+        <component name="postApplicationsGuildsCommandsByApplicationIdByGuildId">
+            <displayName>create_guild_application_command</displayName>
+            <file>postApplicationsGuildsCommandsByApplicationIdByGuildId.xml</file>
+            <description>create_guild_application_command</description>
+        </component>
+        <component name="putGuildsOnboardingByGuildId">
+            <displayName>put_guilds_onboarding</displayName>
+            <file>putGuildsOnboardingByGuildId.xml</file>
+            <description>put_guilds_onboarding</description>
+        </component>
+        <component name="getGuildsWidget_JsonByGuildId">
+            <displayName>get_guild_widget</displayName>
+            <file>getguildswidget_Jsonbyguildid.xml</file>
+            <description>get_guild_widget</description>
+        </component>
+        <component name="getChannelsByChannelId">
+            <displayName>get_channel</displayName>
+            <file>getChannelsByChannelId.xml</file>
+            <description>get_channel</description>
+        </component>
+        <component name="getOauth2__me">
+            <displayName>get_my_oauth2_authorization</displayName>
+            <file>getoauth2_Me.xml</file>
+            <description>get_my_oauth2_authorization</description>
+        </component>
+        <component name="getGuildsScheduled_EventsByGuildId">
+            <displayName>list_guild_scheduled_events</displayName>
+            <file>getguildsscheduled_Eventsbyguildid.xml</file>
+            <description>list_guild_scheduled_events</description>
+        </component>
+        <component name="getGuildsMembersByGuildId">
+            <displayName>list_guild_members</displayName>
+            <file>getGuildsMembersByGuildId.xml</file>
+            <description>list_guild_members</description>
+        </component>
+        <component name="patchGuildsMembers__meByGuildId">
+            <displayName>update_my_guild_member</displayName>
+            <file>patchguildsmembers_Mebyguildid.xml</file>
+            <description>update_my_guild_member</description>
+        </component>
+        <component name="postGuildsRolesByGuildId">
+            <displayName>create_guild_role</displayName>
+            <file>postGuildsRolesByGuildId.xml</file>
+            <description>create_guild_role</description>
+        </component>
+        <component name="getUsers__meGuildsMemberByGuildId">
+            <displayName>get_my_guild_member</displayName>
+            <file>getusers_Meguildsmemberbyguildid.xml</file>
+            <description>get_my_guild_member</description>
+        </component>
+        <component name="deleteChannelsThread_Members__meByChannelId">
+            <displayName>leave_thread</displayName>
+            <file>deletechannelsthread_Members_Mebychannelid.xml</file>
+            <description>leave_thread</description>
+        </component>
+        <component name="getGuildsTemplatesByGuildId">
+            <displayName>list_guild_templates</displayName>
+            <file>getGuildsTemplatesByGuildId.xml</file>
+            <description>list_guild_templates</description>
+        </component>
+        <component name="getGuildsBansByGuildId">
+            <displayName>list_guild_bans</displayName>
+            <file>getGuildsBansByGuildId.xml</file>
+            <description>list_guild_bans</description>
+        </component>
+        <component name="patchGuildsVoice_States__meByGuildId">
+            <displayName>update_self_voice_state</displayName>
+            <file>patchguildsvoice_States_Mebyguildid.xml</file>
+            <description>update_self_voice_state</description>
+        </component>
+        <component name="getGuildsRolesByGuildId">
+            <displayName>list_guild_roles</displayName>
+            <file>getGuildsRolesByGuildId.xml</file>
+            <description>list_guild_roles</description>
+        </component>
+        <component name="getGuildsWidgetByGuildId">
+            <displayName>get_guild_widget_settings</displayName>
+            <file>getGuildsWidgetByGuildId.xml</file>
+            <description>get_guild_widget_settings</description>
+        </component>
+        <component name="postChannelsThreadsByChannelId">
+            <displayName>create_thread</displayName>
+            <file>postChannelsThreadsByChannelId.xml</file>
+            <description>create_thread</description>
+        </component>
+        <component name="deleteWebhooksByWebhookId">
+            <displayName>delete_webhook</displayName>
+            <file>deleteWebhooksByWebhookId.xml</file>
+            <description>delete_webhook</description>
+        </component>
+        <component name="deleteChannelsMessagesReactionsByChannelIdByMessageId">
+            <displayName>delete_all_message_reactions</displayName>
+            <file>deleteChannelsMessagesReactionsByChannelIdByMessageId.xml</file>
+            <description>delete_all_message_reactions</description>
+        </component>
+        <component name="patchGuildsEmojisByGuildIdByEmojiId">
+            <displayName>update_guild_emoji</displayName>
+            <file>patchGuildsEmojisByGuildIdByEmojiId.xml</file>
+            <description>update_guild_emoji</description>
+        </component>
+        <component name="putApplicationsGuildsCommandsPermissionsByApplicationIdByGuildIdByCommandId">
+            <displayName>set_guild_application_command_permissions</displayName>
+            <file>putApplicationsGuildsCommandsPermissionsByApplicationIdByGuildIdByCommandId.xml</file>
+            <description>set_guild_application_command_permissions</description>
+        </component>
+        <component name="getChannelsPinsByChannelId">
+            <displayName>list_pinned_messages</displayName>
+            <file>getChannelsPinsByChannelId.xml</file>
+            <description>list_pinned_messages</description>
+        </component>
+        <component name="postGuildsChannelsByGuildId">
+            <displayName>create_guild_channel</displayName>
+            <file>postGuildsChannelsByGuildId.xml</file>
+            <description>create_guild_channel</description>
+        </component>
+        <component name="deleteGuildsByGuildId">
+            <displayName>delete_guild</displayName>
+            <file>deleteGuildsByGuildId.xml</file>
+            <description>delete_guild</description>
+        </component>
+        <component name="postChannelsFollowersByChannelId">
+            <displayName>follow_channel</displayName>
+            <file>postChannelsFollowersByChannelId.xml</file>
+            <description>follow_channel</description>
+        </component>
+        <component name="postGuildsStickersByGuildId">
+            <displayName>create_guild_sticker</displayName>
+            <file>postGuildsStickersByGuildId.xml</file>
+            <description>create_guild_sticker</description>
+        </component>
+        <component name="getGuildsWebhooksByGuildId">
+            <displayName>get_guild_webhooks</displayName>
+            <file>getGuildsWebhooksByGuildId.xml</file>
+            <description>get_guild_webhooks</description>
+        </component>
+        <component name="deleteChannelsMessagesReactionsByChannelIdByMessageIdByEmojiNameByUserId">
+            <displayName>delete_user_message_reaction</displayName>
+            <file>deleteChannelsMessagesReactionsByChannelIdByMessageIdByEmojiNameByUserId.xml</file>
+            <description>delete_user_message_reaction</description>
+        </component>
+        <component name="deleteChannelsThread_MembersByChannelIdByUserId">
+            <displayName>delete_thread_member</displayName>
+            <file>deletechannelsthread_Membersbychannelidbyuserid.xml</file>
+            <description>delete_thread_member</description>
+        </component>
+        <component name="patchApplicationsCommandsByApplicationIdByCommandId">
+            <displayName>update_application_command</displayName>
+            <file>patchApplicationsCommandsByApplicationIdByCommandId.xml</file>
+            <description>update_application_command</description>
+        </component>
+        <component name="postChannelsMessagesByChannelId">
+            <displayName>create_message</displayName>
+            <file>postChannelsMessagesByChannelId.xml</file>
+            <description>create_message</description>
+        </component>
+        <component name="putChannelsPermissionsByChannelIdByOverwriteId">
+            <displayName>set_channel_permission_overwrite</displayName>
+            <file>putChannelsPermissionsByChannelIdByOverwriteId.xml</file>
+            <description>set_channel_permission_overwrite</description>
+        </component>
+        <component name="postInteractionsCallbackByInteractionIdByInteractionToken">
+            <displayName>create_interaction_response</displayName>
+            <file>postInteractionsCallbackByInteractionIdByInteractionToken.xml</file>
+            <description>create_interaction_response</description>
+        </component>
+        <component name="getGuildsAudit_LogsByGuildId">
+            <displayName>list_guild_audit_log_entries</displayName>
+            <file>getguildsaudit_Logsbyguildid.xml</file>
+            <description>list_guild_audit_log_entries</description>
+        </component>
+        <component name="getUsersByUserId">
+            <displayName>get_user</displayName>
+            <file>getUsersByUserId.xml</file>
+            <description>get_user</description>
+        </component>
+        <component name="getGuildsWidget_PngByGuildId">
+            <displayName>get_guild_widget_png</displayName>
+            <file>getguildswidget_Pngbyguildid.xml</file>
+            <description>get_guild_widget_png</description>
+        </component>
+        <component name="deleteGuildsIntegrationsByGuildIdByIntegrationId">
+            <displayName>delete_guild_integration</displayName>
+            <file>deleteGuildsIntegrationsByGuildIdByIntegrationId.xml</file>
+            <description>delete_guild_integration</description>
+        </component>
+        <component name="putGuildsMembersByGuildIdByUserId">
+            <displayName>add_guild_member</displayName>
+            <file>putGuildsMembersByGuildIdByUserId.xml</file>
+            <description>add_guild_member</description>
+        </component>
+        <component name="patchGuildsMembersByGuildIdByUserId">
+            <displayName>update_guild_member</displayName>
+            <file>patchGuildsMembersByGuildIdByUserId.xml</file>
+            <description>update_guild_member</description>
+        </component>
+        <component name="deleteChannelsRecipientsByChannelIdByUserId">
+            <displayName>delete_group_dm_user</displayName>
+            <file>deleteChannelsRecipientsByChannelIdByUserId.xml</file>
+            <description>delete_group_dm_user</description>
+        </component>
+        <component name="getApplicationsCommandsByApplicationId">
+            <displayName>list_application_commands</displayName>
+            <file>getApplicationsCommandsByApplicationId.xml</file>
+            <description>list_application_commands</description>
+        </component>
+        <component name="putGuildsMembersRolesByGuildIdByUserIdByRoleId">
+            <displayName>add_guild_member_role</displayName>
+            <file>putGuildsMembersRolesByGuildIdByUserIdByRoleId.xml</file>
+            <description>add_guild_member_role</description>
+        </component>
+        <component name="patchGuildsChannelsByGuildId">
+            <displayName>bulk_update_guild_channels</displayName>
+            <file>patchGuildsChannelsByGuildId.xml</file>
+            <description>bulk_update_guild_channels</description>
+        </component>
+        <component name="deleteApplicationsGuildsCommandsByApplicationIdByGuildIdByCommandId">
+            <displayName>delete_guild_application_command</displayName>
+            <file>deleteApplicationsGuildsCommandsByApplicationIdByGuildIdByCommandId.xml</file>
+            <description>delete_guild_application_command</description>
+        </component>
+        <component name="putChannelsThread_MembersByChannelIdByUserId">
+            <displayName>add_thread_member</displayName>
+            <file>putchannelsthread_Membersbychannelidbyuserid.xml</file>
+            <description>add_thread_member</description>
+        </component>
+        <component name="postWebhooksGithubByWebhookIdByWebhookToken">
+            <displayName>execute_github_compatible_webhook</displayName>
+            <file>postWebhooksGithubByWebhookIdByWebhookToken.xml</file>
+            <description>execute_github_compatible_webhook</description>
+        </component>
+        <component name="patchChannelsMessagesByChannelIdByMessageId">
+            <displayName>update_message</displayName>
+            <file>patchChannelsMessagesByChannelIdByMessageId.xml</file>
+            <description>update_message</description>
+        </component>
+        <component name="getChannelsWebhooksByChannelId">
+            <displayName>list_channel_webhooks</displayName>
+            <file>getChannelsWebhooksByChannelId.xml</file>
+            <description>list_channel_webhooks</description>
+        </component>
+        <component name="getGuildsInvitesByGuildId">
+            <displayName>list_guild_invites</displayName>
+            <file>getGuildsInvitesByGuildId.xml</file>
+            <description>list_guild_invites</description>
+        </component>
+        <component name="patchGuildsRolesByGuildId">
+            <displayName>bulk_update_guild_roles</displayName>
+            <file>patchGuildsRolesByGuildId.xml</file>
+            <description>bulk_update_guild_roles</description>
+        </component>
+        <component name="putGuildsBansByGuildIdByUserId">
+            <displayName>ban_user_from_guild</displayName>
+            <file>putGuildsBansByGuildIdByUserId.xml</file>
+            <description>ban_user_from_guild</description>
+        </component>
+        <component name="putChannelsPinsByChannelIdByMessageId">
+            <displayName>pin_message</displayName>
+            <file>putChannelsPinsByChannelIdByMessageId.xml</file>
+            <description>pin_message</description>
+        </component>
+        <component name="getChannelsThreadsArchived_privateByChannelId">
+            <displayName>list_private_archived_threads</displayName>
+            <file>getchannelsthreadsarchived_Privatebychannelid.xml</file>
+            <description>list_private_archived_threads</description>
+        </component>
+        <component name="patchApplicationsGuildsCommandsByApplicationIdByGuildIdByCommandId">
+            <displayName>update_guild_application_command</displayName>
+            <file>patchApplicationsGuildsCommandsByApplicationIdByGuildIdByCommandId.xml</file>
+            <description>update_guild_application_command</description>
+        </component>
+        <component name="getApplicationsEntitlementsByApplicationId">
+            <displayName>get_entitlements</displayName>
+            <file>getApplicationsEntitlementsByApplicationId.xml</file>
+            <description>get_entitlements</description>
+        </component>
+        <component name="deleteStage_InstancesByChannelId">
+            <displayName>delete_stage_instance</displayName>
+            <file>deletestage_Instancesbychannelid.xml</file>
+            <description>delete_stage_instance</description>
+        </component>
+        <component name="getGuildsEmojisByGuildId">
+            <displayName>list_guild_emojis</displayName>
+            <file>getGuildsEmojisByGuildId.xml</file>
+            <description>list_guild_emojis</description>
+        </component>
+        <component name="getGuildsVanity_UrlByGuildId">
+            <displayName>get_guild_vanity_url</displayName>
+            <file>getguildsvanity_Urlbyguildid.xml</file>
+            <description>get_guild_vanity_url</description>
+        </component>
+        <component name="postApplicationsEntitlementsByApplicationId">
+            <displayName>create_entitlement</displayName>
+            <file>postApplicationsEntitlementsByApplicationId.xml</file>
+            <description>create_entitlement</description>
+        </component>
+        <component name="getChannelsInvitesByChannelId">
+            <displayName>list_channel_invites</displayName>
+            <file>getChannelsInvitesByChannelId.xml</file>
+            <description>list_channel_invites</description>
+        </component>
+        <component name="getOauth2Applications__me">
+            <displayName>get_my_oauth2_application</displayName>
+            <file>getoauth2applications_Me.xml</file>
+            <description>get_my_oauth2_application</description>
+        </component>
+        <component name="patchApplicationsByApplicationId">
+            <displayName>update_application</displayName>
+            <file>patchApplicationsByApplicationId.xml</file>
+            <description>update_application</description>
+        </component>
+        <component name="postGuildsScheduled_EventsByGuildId">
+            <displayName>create_guild_scheduled_event</displayName>
+            <file>postguildsscheduled_Eventsbyguildid.xml</file>
+            <description>create_guild_scheduled_event</description>
+        </component>
+        <component name="putUsers__meApplicationsRole_ConnectionByApplicationId">
+            <displayName>update_application_user_role_connection</displayName>
+            <file>putusers_Meapplicationsrole_Connectionbyapplicationid.xml</file>
+            <description>update_application_user_role_connection</description>
+        </component>
+        <component name="getApplicationsGuildsCommandsByApplicationIdByGuildId">
+            <displayName>list_guild_application_commands</displayName>
+            <file>getApplicationsGuildsCommandsByApplicationIdByGuildId.xml</file>
+            <description>list_guild_application_commands</description>
+        </component>
+        <component name="getGuildsThreadsActiveByGuildId">
+            <displayName>get_active_guild_threads</displayName>
+            <file>getGuildsThreadsActiveByGuildId.xml</file>
+            <description>get_active_guild_threads</description>
+        </component>
+        <component name="putGuildsTemplatesByGuildIdByCode">
+            <displayName>sync_guild_template</displayName>
+            <file>putGuildsTemplatesByGuildIdByCode.xml</file>
+            <description>sync_guild_template</description>
+        </component>
+        <component name="getChannelsUsers__meThreadsArchived_privateByChannelId">
+            <displayName>list_my_private_archived_threads</displayName>
+            <file>getchannelsusers_Methreadsarchived_Privatebychannelid.xml</file>
+            <description>list_my_private_archived_threads</description>
+        </component>
+        <component name="deleteWebhooksByWebhookIdByWebhookToken">
+            <displayName>delete_webhook_by_token</displayName>
+            <file>deleteWebhooksByWebhookIdByWebhookToken.xml</file>
+            <description>delete_webhook_by_token</description>
+        </component>
+        <component name="getVoiceRegions">
+            <displayName>list_voice_regions</displayName>
+            <file>getVoiceRegions.xml</file>
+            <description>list_voice_regions</description>
+        </component>
+        <component name="postApplicationsCommandsByApplicationId">
+            <displayName>create_application_command</displayName>
+            <file>postApplicationsCommandsByApplicationId.xml</file>
+            <description>create_application_command</description>
+        </component>
+        <component name="deleteUsers__meGuildsByGuildId">
+            <displayName>leave_guild</displayName>
+            <file>deleteusers_Meguildsbyguildid.xml</file>
+            <description>leave_guild</description>
+        </component>
+        <component name="patchGuildsTemplatesByGuildIdByCode">
+            <displayName>update_guild_template</displayName>
+            <file>patchGuildsTemplatesByGuildIdByCode.xml</file>
+            <description>update_guild_template</description>
+        </component>
+        <component name="deleteChannelsMessagesByChannelIdByMessageId">
+            <displayName>delete_message</displayName>
+            <file>deleteChannelsMessagesByChannelIdByMessageId.xml</file>
+            <description>delete_message</description>
+        </component>
+        <component name="getApplicationsGuildsCommandsPermissionsByApplicationIdByGuildId">
+            <displayName>list_guild_application_command_permissions</displayName>
+            <file>getApplicationsGuildsCommandsPermissionsByApplicationIdByGuildId.xml</file>
+            <description>list_guild_application_command_permissions</description>
+        </component>
+        <component name="patchStage_InstancesByChannelId">
+            <displayName>update_stage_instance</displayName>
+            <file>patchstage_Instancesbychannelid.xml</file>
+            <description>update_stage_instance</description>
+        </component>
+        <component name="getWebhooksByWebhookId">
+            <displayName>get_webhook</displayName>
+            <file>getWebhooksByWebhookId.xml</file>
+            <description>get_webhook</description>
+        </component>
+        <component name="putApplicationsGuildsCommandsByApplicationIdByGuildId">
+            <displayName>bulk_set_guild_application_commands</displayName>
+            <file>putApplicationsGuildsCommandsByApplicationIdByGuildId.xml</file>
+            <description>bulk_set_guild_application_commands</description>
+        </component>
+        <component name="deleteChannelsMessagesReactions__meByChannelIdByMessageIdByEmojiName">
+            <displayName>delete_my_message_reaction</displayName>
+            <file>deletechannelsmessagesreactions_Mebychannelidbymessageidbyemojiname.xml</file>
+            <description>delete_my_message_reaction</description>
+        </component>
+        <component name="getOauth2Keys">
+            <displayName>get_public_keys</displayName>
+            <file>getOauth2Keys.xml</file>
+            <description>get_public_keys</description>
+        </component>
+        <component name="deleteChannelsMessagesReactionsByChannelIdByMessageIdByEmojiName">
+            <displayName>delete_all_message_reactions_by_emoji</displayName>
+            <file>deleteChannelsMessagesReactionsByChannelIdByMessageIdByEmojiName.xml</file>
+            <description>delete_all_message_reactions_by_emoji</description>
+        </component>
+        <component name="getApplicationsGuildsCommandsByApplicationIdByGuildIdByCommandId">
+            <displayName>get_guild_application_command</displayName>
+            <file>getApplicationsGuildsCommandsByApplicationIdByGuildIdByCommandId.xml</file>
+            <description>get_guild_application_command</description>
+        </component>
+        <component name="postUsers__meChannels">
+            <displayName>create_dm</displayName>
+            <file>postusers_Mechannels.xml</file>
+            <description>create_dm</description>
+        </component>
+        <component name="getGuildsMembersSearchByGuildId">
+            <displayName>search_guild_members</displayName>
+            <file>getGuildsMembersSearchByGuildId.xml</file>
+            <description>search_guild_members</description>
+        </component>
+        <component name="getApplicationsCommandsByApplicationIdByCommandId">
+            <displayName>get_application_command</displayName>
+            <file>getApplicationsCommandsByApplicationIdByCommandId.xml</file>
+            <description>get_application_command</description>
+        </component>
+        <component name="getGuildsTemplatesByCode">
+            <displayName>get_guild_template</displayName>
+            <file>getGuildsTemplatesByCode.xml</file>
+            <description>get_guild_template</description>
+        </component>
+        <component name="patchChannelsByChannelId">
+            <displayName>update_channel</displayName>
+            <file>patchChannelsByChannelId.xml</file>
+            <description>update_channel</description>
+        </component>
+        <component name="getUsers__meGuilds">
+            <displayName>list_my_guilds</displayName>
+            <file>getusers_Meguilds.xml</file>
+            <description>list_my_guilds</description>
+        </component>
+        <component name="getInvitesByCode">
+            <displayName>invite_resolve</displayName>
+            <file>getInvitesByCode.xml</file>
+            <description>invite_resolve</description>
+        </component>
+        <component name="getGuildsAuto_ModerationRulesByGuildId">
+            <displayName>list_auto_moderation_rules</displayName>
+            <file>getguildsauto_Moderationrulesbyguildid.xml</file>
+            <description>list_auto_moderation_rules</description>
+        </component>
+        <component name="getGuildsIntegrationsByGuildId">
+            <displayName>list_guild_integrations</displayName>
+            <file>getGuildsIntegrationsByGuildId.xml</file>
+            <description>list_guild_integrations</description>
+        </component>
+        <component name="deleteInvitesByCode">
+            <displayName>invite_revoke</displayName>
+            <file>deleteInvitesByCode.xml</file>
+            <description>invite_revoke</description>
+        </component>
+        <component name="postChannelsWebhooksByChannelId">
+            <displayName>create_webhook</displayName>
+            <file>postChannelsWebhooksByChannelId.xml</file>
+            <description>create_webhook</description>
+        </component>
+        <component name="postChannelsMessagesBulk_DeleteByChannelId">
+            <displayName>bulk_delete_messages</displayName>
+            <file>postchannelsmessagesbulk_Deletebychannelid.xml</file>
+            <description>bulk_delete_messages</description>
+        </component>
+        <component name="postWebhooksByWebhookIdByWebhookToken">
+            <displayName>execute_webhook</displayName>
+            <file>postWebhooksByWebhookIdByWebhookToken.xml</file>
+            <description>execute_webhook</description>
+        </component>
+        <component name="putApplicationsCommandsByApplicationId">
+            <displayName>bulk_set_application_commands</displayName>
+            <file>putApplicationsCommandsByApplicationId.xml</file>
+            <description>bulk_set_application_commands</description>
+        </component>
+        <component name="deleteGuildsTemplatesByGuildIdByCode">
+            <displayName>delete_guild_template</displayName>
+            <file>deleteGuildsTemplatesByGuildIdByCode.xml</file>
+            <description>delete_guild_template</description>
+        </component>
+        <component name="getApplications__me">
+            <displayName>get_my_application</displayName>
+            <file>getapplications_Me.xml</file>
+            <description>get_my_application</description>
+        </component>
+        <component name="getUsers__meConnections">
+            <displayName>list_my_connections</displayName>
+            <file>getusers_Meconnections.xml</file>
+            <description>list_my_connections</description>
+        </component>
+        <component name="postGuildsTemplatesByCode">
+            <displayName>create_guild_from_template</displayName>
+            <file>postGuildsTemplatesByCode.xml</file>
+            <description>create_guild_from_template</description>
+        </component>
+        <component name="postGuildsMfaByGuildId">
+            <displayName>set_guild_mfa_level</displayName>
+            <file>postGuildsMfaByGuildId.xml</file>
+            <description>set_guild_mfa_level</description>
+        </component>
+        <component name="postApplicationsEntitlementsConsumeByApplicationIdByEntitlementId">
+            <displayName>consume_entitlement</displayName>
+            <file>postApplicationsEntitlementsConsumeByApplicationIdByEntitlementId.xml</file>
+            <description>consume_entitlement</description>
+        </component>
+        <component name="deleteGuildsMembersRolesByGuildIdByUserIdByRoleId">
+            <displayName>delete_guild_member_role</displayName>
+            <file>deleteGuildsMembersRolesByGuildIdByUserIdByRoleId.xml</file>
+            <description>delete_guild_member_role</description>
+        </component>
+        <component name="getSticker_Packs">
+            <displayName>list_sticker_packs</displayName>
+            <file>getsticker_Packs.xml</file>
+            <description>list_sticker_packs</description>
+        </component>
+        <component name="getApplicationsEntitlementsByApplicationIdByEntitlementId">
+            <displayName>get_entitlement</displayName>
+            <file>getApplicationsEntitlementsByApplicationIdByEntitlementId.xml</file>
+            <description>get_entitlement</description>
+        </component>
+        <component name="getWebhooksByWebhookIdByWebhookToken">
+            <displayName>get_webhook_by_token</displayName>
+            <file>getWebhooksByWebhookIdByWebhookToken.xml</file>
+            <description>get_webhook_by_token</description>
+        </component>
+        <component name="postStage_Instances">
+            <displayName>create_stage_instance</displayName>
+            <file>poststage_Instances.xml</file>
+            <description>create_stage_instance</description>
+        </component>
+        <component name="postChannelsMessagesThreadsByChannelIdByMessageId">
+            <displayName>create_thread_from_message</displayName>
+            <file>postChannelsMessagesThreadsByChannelIdByMessageId.xml</file>
+            <description>create_thread_from_message</description>
+        </component>
+        <component name="deleteChannelsByChannelId">
+            <displayName>delete_channel</displayName>
+            <file>deleteChannelsByChannelId.xml</file>
+            <description>delete_channel</description>
+        </component>
+        <component name="getChannelsThread_MembersByChannelIdByUserId">
+            <displayName>get_thread_member</displayName>
+            <file>getchannelsthread_Membersbychannelidbyuserid.xml</file>
+            <description>get_thread_member</description>
+        </component>
+        <component name="deleteGuildsBansByGuildIdByUserId">
+            <displayName>unban_user_from_guild</displayName>
+            <file>deleteGuildsBansByGuildIdByUserId.xml</file>
+            <description>unban_user_from_guild</description>
+        </component>
+        <component name="deleteChannelsPinsByChannelIdByMessageId">
+            <displayName>unpin_message</displayName>
+            <file>deleteChannelsPinsByChannelIdByMessageId.xml</file>
+            <description>unpin_message</description>
+        </component>
+        <component name="getGuildsStickersByGuildId">
+            <displayName>list_guild_stickers</displayName>
+            <file>getGuildsStickersByGuildId.xml</file>
+            <description>list_guild_stickers</description>
+        </component>
+        <component name="deleteGuildsRolesByGuildIdByRoleId">
+            <displayName>delete_guild_role</displayName>
+            <file>deleteGuildsRolesByGuildIdByRoleId.xml</file>
+            <description>delete_guild_role</description>
+        </component>
+        <component name="deleteWebhooksMessages__originalByWebhookIdByWebhookToken">
+            <displayName>delete_original_webhook_message</displayName>
+            <file>deletewebhooksmessages_Originalbywebhookidbywebhooktoken.xml</file>
+            <description>delete_original_webhook_message</description>
+        </component>
+        <component name="getGuildsEmojisByGuildIdByEmojiId">
+            <displayName>get_guild_emoji</displayName>
+            <file>getGuildsEmojisByGuildIdByEmojiId.xml</file>
+            <description>get_guild_emoji</description>
+        </component>
+        <component name="getGateway">
+            <displayName>get_gateway</displayName>
+            <file>getGateway.xml</file>
+            <description>get_gateway</description>
+        </component>
+        <component name="postChannelsInvitesByChannelId">
+            <displayName>create_channel_invite</displayName>
+            <file>postChannelsInvitesByChannelId.xml</file>
+            <description>create_channel_invite</description>
+        </component>
+        <component name="postGuildsEmojisByGuildId">
+            <displayName>create_guild_emoji</displayName>
+            <file>postGuildsEmojisByGuildId.xml</file>
+            <description>create_guild_emoji</description>
+        </component>
+        <component name="putChannelsMessagesReactions__meByChannelIdByMessageIdByEmojiName">
+            <displayName>add_my_message_reaction</displayName>
+            <file>putchannelsmessagesreactions_Mebychannelidbymessageidbyemojiname.xml</file>
+            <description>add_my_message_reaction</description>
+        </component>
+        <component name="patchGuildsAuto_ModerationRulesByGuildIdByRuleId">
+            <displayName>update_auto_moderation_rule</displayName>
+            <file>patchguildsauto_Moderationrulesbyguildidbyruleid.xml</file>
+            <description>update_auto_moderation_rule</description>
+        </component>
+        <component name="postChannelsTypingByChannelId">
+            <displayName>trigger_typing_indicator</displayName>
+            <file>postChannelsTypingByChannelId.xml</file>
+            <description>trigger_typing_indicator</description>
+        </component>
+        <component name="getStickersByStickerId">
+            <displayName>get_sticker</displayName>
+            <file>getStickersByStickerId.xml</file>
+            <description>get_sticker</description>
+        </component>
+        <component name="getGuildsNew_Member_WelcomeByGuildId">
+            <displayName>get_guild_new_member_welcome</displayName>
+            <file>getguildsnew_Member_Welcomebyguildid.xml</file>
+            <description>get_guild_new_member_welcome</description>
+        </component>
+        <component name="getGuildsScheduled_EventsByGuildIdByGuildScheduledEventId">
+            <displayName>get_guild_scheduled_event</displayName>
+            <file>getguildsscheduled_Eventsbyguildidbyguildscheduledeventid.xml</file>
+            <description>get_guild_scheduled_event</description>
+        </component>
+        <component name="patchGuildsScheduled_EventsByGuildIdByGuildScheduledEventId">
+            <displayName>update_voice_state</displayName>
+            <file>patchguildsscheduled_Eventsbyguildidbyguildscheduledeventid.xml</file>
+            <description>update_voice_state</description>
+        </component>
+        <component name="deleteGuildsStickersByGuildIdByStickerId">
+            <displayName>delete_guild_sticker</displayName>
+            <file>deleteGuildsStickersByGuildIdByStickerId.xml</file>
+            <description>delete_guild_sticker</description>
+        </component>
+        <component name="patchWebhooksByWebhookId">
+            <displayName>update_webhook</displayName>
+            <file>patchWebhooksByWebhookId.xml</file>
+            <description>update_webhook</description>
+        </component>
+        <component name="getStage_InstancesByChannelId">
+            <displayName>get_stage_instance</displayName>
+            <file>getstage_Instancesbychannelid.xml</file>
+            <description>get_stage_instance</description>
+        </component>
+        <component name="getGuildsStickersByGuildIdByStickerId">
+            <displayName>get_guild_sticker</displayName>
+            <file>getGuildsStickersByGuildIdByStickerId.xml</file>
+            <description>get_guild_sticker</description>
+        </component>
+        <component name="deleteGuildsMembersByGuildIdByUserId">
+            <displayName>delete_guild_member</displayName>
+            <file>deleteGuildsMembersByGuildIdByUserId.xml</file>
+            <description>delete_guild_member</description>
+        </component>
+        <component name="getChannelsThread_MembersByChannelId">
+            <displayName>list_thread_members</displayName>
+            <file>getchannelsthread_Membersbychannelid.xml</file>
+            <description>list_thread_members</description>
+        </component>
+        <component name="postGuilds">
+            <displayName>create_guild</displayName>
+            <file>postGuilds.xml</file>
+            <description>create_guild</description>
+        </component>
+        <component name="deleteGuildsEmojisByGuildIdByEmojiId">
+            <displayName>delete_guild_emoji</displayName>
+            <file>deleteGuildsEmojisByGuildIdByEmojiId.xml</file>
+            <description>delete_guild_emoji</description>
+        </component>
+        <component name="getUsers__meApplicationsRole_ConnectionByApplicationId">
+            <displayName>get_application_user_role_connection</displayName>
+            <file>getusers_Meapplicationsrole_Connectionbyapplicationid.xml</file>
+            <description>get_application_user_role_connection</description>
+        </component>
+        <component name="getChannelsMessagesReactionsByChannelIdByMessageIdByEmojiName">
+            <displayName>list_message_reactions_by_emoji</displayName>
+            <file>getChannelsMessagesReactionsByChannelIdByMessageIdByEmojiName.xml</file>
+            <description>list_message_reactions_by_emoji</description>
+        </component>
+        <component name="postGuildsAuto_ModerationRulesByGuildId">
+            <displayName>create_auto_moderation_rule</displayName>
+            <file>postguildsauto_Moderationrulesbyguildid.xml</file>
+            <description>create_auto_moderation_rule</description>
+        </component>
+        <component name="patchGuildsStickersByGuildIdByStickerId">
+            <displayName>update_guild_sticker</displayName>
+            <file>patchGuildsStickersByGuildIdByStickerId.xml</file>
+            <description>update_guild_sticker</description>
+        </component>
+        <component name="deleteGuildsScheduled_EventsByGuildIdByGuildScheduledEventId">
+            <displayName>delete_guild_scheduled_event</displayName>
+            <file>deleteguildsscheduled_Eventsbyguildidbyguildscheduledeventid.xml</file>
+            <description>delete_guild_scheduled_event</description>
+        </component>
+        <component name="getGuildsMembersByGuildIdByUserId">
+            <displayName>get_guild_member</displayName>
+            <file>getGuildsMembersByGuildIdByUserId.xml</file>
+            <description>get_guild_member</description>
+        </component>
+        <component name="patchGuildsWidgetByGuildId">
+            <displayName>update_guild_widget_settings</displayName>
+            <file>patchGuildsWidgetByGuildId.xml</file>
+            <description>update_guild_widget_settings</description>
+        </component>
+        <component name="getGuildsAuto_ModerationRulesByGuildIdByRuleId">
+            <displayName>get_auto_moderation_rule</displayName>
+            <file>getguildsauto_Moderationrulesbyguildidbyruleid.xml</file>
+            <description>get_auto_moderation_rule</description>
+        </component>
+        <component name="patchWebhooksMessagesByWebhookIdByWebhookTokenByMessageId">
+            <displayName>update_webhook_message</displayName>
+            <file>patchWebhooksMessagesByWebhookIdByWebhookTokenByMessageId.xml</file>
+            <description>update_webhook_message</description>
+        </component>
+        <component name="patchGuildsVoice_StatesByGuildIdByUserId">
+            <displayName>update_voice_state</displayName>
+            <file>patchguildsvoice_Statesbyguildidbyuserid.xml</file>
+            <description>update_voice_state</description>
+        </component>
+        <component name="deleteGuildsAuto_ModerationRulesByGuildIdByRuleId">
+            <displayName>delete_auto_moderation_rule</displayName>
+            <file>deleteguildsauto_Moderationrulesbyguildidbyruleid.xml</file>
+            <description>delete_auto_moderation_rule</description>
+        </component>
+        <component name="deleteApplicationsCommandsByApplicationIdByCommandId">
+            <displayName>delete_application_command</displayName>
+            <file>deleteApplicationsCommandsByApplicationIdByCommandId.xml</file>
+            <description>delete_application_command</description>
+        </component>
+        <component name="patchGuildsRolesByGuildIdByRoleId">
+            <displayName>update_guild_role</displayName>
+            <file>patchGuildsRolesByGuildIdByRoleId.xml</file>
+            <description>update_guild_role</description>
+        </component>
+        <component name="getChannelsThreadsArchived_publicByChannelId">
+            <displayName>list_public_archived_threads</displayName>
+            <file>getchannelsthreadsarchived_Publicbychannelid.xml</file>
+            <description>list_public_archived_threads</description>
+        </component>
+        <component name="getGuildsPreviewByGuildId">
+            <displayName>get_guild_preview</displayName>
+            <file>getGuildsPreviewByGuildId.xml</file>
+            <description>get_guild_preview</description>
+        </component>
+        <component name="getGuildsByGuildId">
+            <displayName>get_guild</displayName>
+            <file>getGuildsByGuildId.xml</file>
+            <description>get_guild</description>
+        </component>
+        <component name="putChannelsRecipientsByChannelIdByUserId">
+            <displayName>add_group_dm_user</displayName>
+            <file>putChannelsRecipientsByChannelIdByUserId.xml</file>
+            <description>add_group_dm_user</description>
+        </component>
+        <component name="getWebhooksMessages__originalByWebhookIdByWebhookToken">
+            <displayName>get_original_webhook_message</displayName>
+            <file>getwebhooksmessages_Originalbywebhookidbywebhooktoken.xml</file>
+            <description>get_original_webhook_message</description>
+        </component>
+        <component name="patchGuildsWelcome_ScreenByGuildId">
+            <displayName>update_guild_welcome_screen</displayName>
+            <file>patchguildswelcome_Screenbyguildid.xml</file>
+            <description>update_guild_welcome_screen</description>
+        </component>
+        <component name="putApplicationsRole_ConnectionsMetadataByApplicationId">
+            <displayName>update_application_role_connections_metadata</displayName>
+            <file>putapplicationsrole_Connectionsmetadatabyapplicationid.xml</file>
+            <description>update_application_role_connections_metadata</description>
+        </component>
+        <component name="getApplicationsGuildsCommandsPermissionsByApplicationIdByGuildIdByCommandId">
+            <displayName>get_guild_application_command_permissions</displayName>
+            <file>getApplicationsGuildsCommandsPermissionsByApplicationIdByGuildIdByCommandId.xml</file>
+            <description>get_guild_application_command_permissions</description>
+        </component>
+        <component name="getGuildsRegionsByGuildId">
+            <displayName>list_guild_voice_regions</displayName>
+            <file>getGuildsRegionsByGuildId.xml</file>
+            <description>list_guild_voice_regions</description>
+        </component>
+        <component name="getChannelsMessagesByChannelIdByMessageId">
+            <displayName>get_message</displayName>
+            <file>getChannelsMessagesByChannelIdByMessageId.xml</file>
+            <description>get_message</description>
+        </component>
+        <component name="patchWebhooksByWebhookIdByWebhookToken">
+            <displayName>update_webhook_by_token</displayName>
+            <file>patchWebhooksByWebhookIdByWebhookToken.xml</file>
+            <description>update_webhook_by_token</description>
+        </component>
+        <component name="getGuildsWelcome_ScreenByGuildId">
+            <displayName>get_guild_welcome_screen</displayName>
+            <file>getguildswelcome_Screenbyguildid.xml</file>
+            <description>get_guild_welcome_screen</description>
+        </component>
+        <component name="patchApplications__me">
+            <displayName>update_my_application</displayName>
+            <file>patchapplications_Me.xml</file>
+            <description>update_my_application</description>
+        </component>
+        <component name="patchGuildsByGuildId">
+            <displayName>update_guild</displayName>
+            <file>patchGuildsByGuildId.xml</file>
+            <description>update_guild</description>
+        </component>
+        <component name="deleteApplicationsEntitlementsByApplicationIdByEntitlementId">
+            <displayName>delete_entitlement</displayName>
+            <file>deleteApplicationsEntitlementsByApplicationIdByEntitlementId.xml</file>
+            <description>delete_entitlement</description>
+        </component>
+        <component name="postGuildsBulk_BanByGuildId">
+            <displayName>bulk_ban_users_from_guild</displayName>
+            <file>postguildsbulk_Banbyguildid.xml</file>
+            <description>bulk_ban_users_from_guild</description>
+        </component>
+        <component name="getWebhooksMessagesByWebhookIdByWebhookTokenByMessageId">
+            <displayName>get_webhook_message</displayName>
+            <file>getWebhooksMessagesByWebhookIdByWebhookTokenByMessageId.xml</file>
+            <description>get_webhook_message</description>
+        </component>
+        <component name="getGuildsBansByGuildIdByUserId">
+            <displayName>get_guild_ban</displayName>
+            <file>getGuildsBansByGuildIdByUserId.xml</file>
+            <description>get_guild_ban</description>
+        </component>
+        <component name="putChannelsThread_Members__meByChannelId">
+            <displayName>join_thread</displayName>
+            <file>putchannelsthread_Members_Mebychannelid.xml</file>
+            <description>join_thread</description>
+        </component>
+        <component name="postGuildsTemplatesByGuildId">
+            <displayName>create_guild_template</displayName>
+            <file>postGuildsTemplatesByGuildId.xml</file>
+            <description>create_guild_template</description>
+        </component>
+        <component name="getGatewayBot">
+            <displayName>get_bot_gateway</displayName>
+            <file>getGatewayBot.xml</file>
+            <description>get_bot_gateway</description>
+        </component>
+        <component name="postChannelsMessagesCrosspostByChannelIdByMessageId">
+            <displayName>crosspost_message</displayName>
+            <file>postChannelsMessagesCrosspostByChannelIdByMessageId.xml</file>
+            <description>crosspost_message</description>
+        </component>
+        <component name="getGuildsChannelsByGuildId">
+            <displayName>list_guild_channels</displayName>
+            <file>getGuildsChannelsByGuildId.xml</file>
+            <description>list_guild_channels</description>
+        </component>
+        <component name="getGuildsScheduled_EventsUsersByGuildIdByGuildScheduledEventId">
+            <displayName>list_guild_scheduled_event_users</displayName>
+            <file>getguildsscheduled_Eventsusersbyguildidbyguildscheduledeventid.xml</file>
+            <description>list_guild_scheduled_event_users</description>
+        </component>
+        <component name="patchUsers__me">
+            <displayName>update_my_user</displayName>
+            <file>patchusers_Me.xml</file>
+            <description>update_my_user</description>
+        </component>
+        <component name="postGuildsPruneByGuildId">
+            <displayName>prune_guild</displayName>
+            <file>postGuildsPruneByGuildId.xml</file>
+            <description>prune_guild</description>
+        </component>
+        <component name="getApplicationsByApplicationId">
+            <displayName>get_application</displayName>
+            <file>getApplicationsByApplicationId.xml</file>
+            <description>get_application</description>
+        </component>
+        <component name="patchWebhooksMessages__originalByWebhookIdByWebhookToken">
+            <displayName>update_original_webhook_message</displayName>
+            <file>patchwebhooksmessages_Originalbywebhookidbywebhooktoken.xml</file>
+            <description>update_original_webhook_message</description>
+        </component>
+        <component name="getChannelsMessagesByChannelId">
+            <displayName>list_messages</displayName>
+            <file>getChannelsMessagesByChannelId.xml</file>
+            <description>list_messages</description>
+        </component>
+        <component name="getApplicationsRole_ConnectionsMetadataByApplicationId">
+            <displayName>get_application_role_connections_metadata</displayName>
+            <file>getapplicationsrole_Connectionsmetadatabyapplicationid.xml</file>
+            <description>get_application_role_connections_metadata</description>
+        </component>
+        <component name="getGuildsOnboardingByGuildId">
+            <displayName>get_guilds_onboarding</displayName>
+            <file>getGuildsOnboardingByGuildId.xml</file>
+            <description>get_guilds_onboarding</description>
+        </component>
+        <component name="postWebhooksSlackByWebhookIdByWebhookToken">
+            <displayName>execute_slack_compatible_webhook</displayName>
+            <file>postWebhooksSlackByWebhookIdByWebhookToken.xml</file>
+            <description>execute_slack_compatible_webhook</description>
+        </component>
+        </subComponents>
+</component>

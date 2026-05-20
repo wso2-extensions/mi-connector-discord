@@ -1,0 +1,258 @@
+{
+  "connectorName": "discord",
+  "operationName": "putApplicationsGuildsCommandsByApplicationIdByGuildId",
+  "title": "bulk_set_guild_application_commands",
+  "help": "bulk_set_guild_application_commands\n",
+  "elements": [
+    {
+      "type": "attributeGroup",
+      "value": {
+        "groupName": "General",
+        "elements": [
+          {
+            "type": "attribute",
+            "value": {
+              "name": "configRef",
+              "displayName": "Connection",
+              "inputType": "connection",
+              "allowedConnectionTypes": [
+                "discord_Client"
+              ],
+              "defaultType": "connection.discord_Client",
+              "defaultValue": "",
+              "required": "true",
+              "helpTip": "Connection to be used"
+            }
+          },
+          {
+            "type": "attributeGroup",
+            "value": {
+              "groupName": "Input Variables",
+              "elements": [
+                {
+                  "type": "attribute",
+                  "value": {
+                    "name": "applicationId",
+                    "displayName": "applicationId",
+                    "inputType": "stringOrExpression",
+                    "defaultValue": "",
+                    "required": true,
+                    "helpTip": "",
+                    "validateType": "",
+                    "matchPattern": ""
+                  }
+                },
+                {
+                  "type": "attribute",
+                  "value": {
+                    "name": "guildId",
+                    "displayName": "guildId",
+                    "inputType": "stringOrExpression",
+                    "defaultValue": "",
+                    "required": true,
+                    "helpTip": "",
+                    "validateType": "",
+                    "matchPattern": ""
+                  }
+                },
+                {
+                  "type": "attribute",
+                  "value": {
+                    "name": "payloadInputMode",
+                    "displayName": "payload Input Mode",
+                    "inputType": "combo",
+                    "comboValues": [
+                      "Table",
+                      "JSON"
+                    ],
+                    "defaultValue": "Table",
+                    "required": "true",
+                    "helpTip": "Choose input mode: Table for interactive entry, JSON for array expression"
+                  }
+                },
+                {
+                  "type": "table",
+                  "value": {
+                    "name": "payload",
+                    "displayName": "payload",
+                    "title": "payload",
+                    "description": "Configure payload entries",
+                    "tableKey": "nameLocalizations",
+                    "tableValue": "type",
+                    "enableCondition": [
+                      {
+                        "payloadInputMode": "Table"
+                      }
+                    ],
+                    "elements": [
+                      {
+                        "type": "attribute",
+                        "value": {
+                          "name": "nameLocalizations",
+                          "displayName": "NameLocalizations",
+                          "inputType": "stringOrExpression",
+                          "required": false,
+                          "helpTip": "NameLocalizations"
+                        }
+                      },
+                      {
+                        "type": "attribute",
+                        "value": {
+                          "name": "dmPermission",
+                          "displayName": "DmPermission",
+                          "inputType": "stringOrExpression",
+                          "required": false,
+                          "helpTip": "DmPermission"
+                        }
+                      },
+                      {
+                        "type": "attribute",
+                        "value": {
+                          "name": "name",
+                          "displayName": "Name",
+                          "inputType": "stringOrExpression",
+                          "required": true,
+                          "helpTip": "Name"
+                        }
+                      },
+                      {
+                        "type": "attribute",
+                        "value": {
+                          "name": "options",
+                          "displayName": "Options",
+                          "inputType": "stringOrExpression",
+                          "required": false,
+                          "helpTip": "Options"
+                        }
+                      },
+                      {
+                        "type": "attribute",
+                        "value": {
+                          "name": "description",
+                          "displayName": "Description",
+                          "inputType": "stringOrExpression",
+                          "required": false,
+                          "helpTip": "Description"
+                        }
+                      },
+                      {
+                        "type": "attribute",
+                        "value": {
+                          "name": "descriptionLocalizations",
+                          "displayName": "DescriptionLocalizations",
+                          "inputType": "stringOrExpression",
+                          "required": false,
+                          "helpTip": "DescriptionLocalizations"
+                        }
+                      },
+                      {
+                        "type": "attribute",
+                        "value": {
+                          "name": "defaultMemberPermissions",
+                          "displayName": "DefaultMemberPermissions",
+                          "inputType": "stringOrExpression",
+                          "required": false,
+                          "helpTip": "DefaultMemberPermissions"
+                        }
+                      },
+                      {
+                        "type": "attribute",
+                        "value": {
+                          "name": "id",
+                          "displayName": "Id",
+                          "inputType": "stringOrExpression",
+                          "required": false,
+                          "helpTip": "Id"
+                        }
+                      },
+                      {
+                        "type": "attribute",
+                        "value": {
+                          "name": "type",
+                          "displayName": "Type",
+                          "inputType": "stringOrExpression",
+                          "required": false,
+                          "helpTip": "Type"
+                        }
+                      }
+                    ]
+                  }
+                },
+                {
+                  "type": "attribute",
+                  "value": {
+                    "name": "payloadJson",
+                    "displayName": "payload (JSON Array)",
+                    "inputType": "stringOrExpression",
+                    "defaultValue": "",
+                    "required": true,
+                    "helpTip": "Enter JSON array of payload objects. Example: [{\"field1\": \"value1\", ...}, ...]",
+                    "validateType": "json",
+                    "matchPattern": "",
+                    "enableCondition": [
+                      {
+                        "payloadInputMode": "JSON"
+                      }
+                    ]
+                  }
+                },
+                {
+                  "type": "attributeGroup",
+                  "value": {
+                    "groupName": "Advanced",
+                    "collapsed": true,
+                    "elements": [
+                      {
+                        "type": "attribute",
+                        "value": {
+                          "name": "headers",
+                          "displayName": "headers",
+                          "inputType": "stringOrExpression",
+                          "defaultValue": "{}",
+                          "required": false,
+                          "helpTip": "Expecting JSON object with key-value pairs",
+                          "validateType": "json",
+                          "matchPattern": ""
+                        }
+                      }
+                    ]
+                  }
+                }
+              ]
+            }
+          },
+          {
+            "type": "attributeGroup",
+            "value": {
+              "groupName": "Output",
+              "elements": [
+                {
+                  "type": "attribute",
+                  "value": {
+                    "name": "responseVariable",
+                    "displayName": "Output Variable Name",
+                    "inputType": "string",
+                    "defaultValue": "",
+                    "required": "false",
+                    "helpTip": "The target variable in which the output of the operation will be stored"
+                  }
+                },
+                {
+                  "type": "attribute",
+                  "value": {
+                    "name": "overwriteBody",
+                    "displayName": "Overwrite Message Body",
+                    "inputType": "checkbox",
+                    "defaultValue": "false",
+                    "helpTip": "Replace the Message Body in Message Context with the output payload of the operation (This will remove the payload from the above variable. But other elements such as headers and attributes will remain).",
+                    "required": "false"
+                  }
+                }
+              ]
+            }
+          }
+        ]
+      }
+    }
+  ]
+}
